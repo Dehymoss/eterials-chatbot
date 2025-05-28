@@ -26,31 +26,24 @@
         function mostrarPresentacion() {
             let saludo = obtenerSaludo();
             let numeroMesa = obtenerNumeroMesa();
+            let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
+
             let mensaje = `${saludo}, bienvenido a *Eterials Gastro-Café*.  
             Soy ${nombreChatbot}, tu asistente en la mesa ${numeroMesa}.`;
 
-            document.getElementById("saludo").innerHTML = mensaje;
-
-            setTimeout(() => {
-                preguntarNombreUsuario();
-            }, 1500);
-        }
-
-        // Pregunta si el usuario desea ingresar su nombre
-        function preguntarNombreUsuario() {
-            let respuesta = confirm("¿Quieres que te llamemos por tu nombre?");
-            if (respuesta) {
-                document.getElementById("nombre-container").style.display = "block";
-            } else {
-                localStorage.setItem("nombreCliente", "Invitado");
+            if (nombreCliente !== "Invitado") {
+                mensaje += ` ¡Qué gusto tenerte aquí, ${nombreCliente}!`;
             }
+
+            document.getElementById("saludo").innerHTML = mensaje;
         }
 
-        // Guardar el nombre del cliente
+        // Guardar el nombre del cliente y actualizar el saludo
         function guardarNombre() {
             let nombre = document.getElementById("nombre").value.trim();
             if (nombre !== "") {
                 localStorage.setItem("nombreCliente", nombre);
+                mostrarPresentacion(); // Se actualiza el saludo en pantalla
                 alert(`¡Gracias, ${nombre}! Ahora te llamaremos por tu nombre.`);
             } else {
                 alert("Por favor, ingresa un nombre válido.");
