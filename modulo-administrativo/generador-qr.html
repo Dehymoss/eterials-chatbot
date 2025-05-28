@@ -5,21 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de QR - Eterials</title>
     <script src="qrcode.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .qr-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .qr-box { text-align: center; padding: 10px; border: 1px solid #ccc; }
+        .qr-box canvas { width: 150px; height: 150px; }
+    </style>
 </head>
 <body>
     <h1>Generador de QR para mesas</h1>
-    <label for="mesa">Número de mesa:</label>
-    <input type="number" id="mesa" min="1" max="50">
-    <button onclick="generarQR()">Generar QR</button>
-    <div id="qrcode"></div>
+    
+    <label for="cantidad">Cantidad de mesas:</label>
+    <input type="number" id="cantidad" min="1" max="100" placeholder="Ejemplo: 10">
+    <button onclick="generarQRCodes()">Generar QR</button>
+    
+    <div class="qr-container" id="qrContainer"></div>
 
     <script>
-        function generarQR() {
-            let numeroMesa = document.getElementById("mesa").value;
-           let url = `https://dehymoss.github.io/eterials-chatbot/chatbot-interno/?mesa=${numeroMesa}`;
-            
-            document.getElementById("qrcode").innerHTML = "";
-            new QRCode(document.getElementById("qrcode"), url);
+        function generarQRCodes() {
+            let container = document.getElementById("qrContainer");
+            container.innerHTML = ""; // Limpiar contenido previo
+            let cantidadMesas = document.getElementById("cantidad").value;
+
+            if (!cantidadMesas || cantidadMesas < 1 || cantidadMesas % 1 !== 0) {
+                alert("Por favor ingresa una cantidad válida de mesas.");
+                return;
+            }
+
+            for (let i = 1; i <= cantidadMesas; i++) {
+                let div = document.createElement("div");
+                div.className = "qr-box";
+                div.innerHTML = `<h3>Mesa ${i}</h3><div id="qr-${i}"></div><button onclick="descargarQR(${i})">Descargar QR</button>`;
+                container.appendChild(div);
+                
+                let url = `https://dehymoss.github.io/eterials-chatbot/chatbot-interno/?mesa=${i}`;
+                new QRCode(document.getElementById(`qr-${i}`), {
+                    text: url,
+                    width: 150,
+                    height: 150
+                });
+            }
+        }
+
+        function descargarQR(mesa) {
+            let canvas = document.querySelector(`#qr-${mesa} canvas`);
+            let link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download = `QR_Mesa_${mesa}.png`;
+            link.click();
         }
     </script>
 </body>
