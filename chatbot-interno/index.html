@@ -5,95 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Interno - Eterials</title>
     <script>
+        // Nombre del chatbot
+        const nombreChatbot = "Éter";
+
         // Función para obtener el número de mesa desde la URL
         function obtenerNumeroMesa() {
             let params = new URLSearchParams(window.location.search);
             return params.get("mesa") || "Sin número";
         }
 
-        // Función para mostrar el saludo con número de mesa y nombre
-        function mostrarSaludo() {
-            let numeroMesa = obtenerNumeroMesa();
-            let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
-            document.getElementById("saludo").innerHTML = `¡Hola, ${nombreCliente}! Estás en la mesa ${numeroMesa}.`;
+        // Función para determinar el saludo según la hora
+        function obtenerSaludo() {
+            let hora = new Date().getHours();
+            if (hora >= 6 && hora < 12) return "Buenos días";
+            if (hora >= 12 && hora < 18) return "Buenas tardes";
+            return "Buenas noches";
         }
 
-        // Guardar el nombre del cliente en localStorage
+        // Mostrar saludo con número de mesa y presentación del chatbot
+        function mostrarPresentacion() {
+            let saludo = obtenerSaludo();
+            let numeroMesa = obtenerNumeroMesa();
+            let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
+
+            let mensaje = `${saludo}, bienvenido a *Eterials*! 🌌 Soy ${nombreChatbot}, tu asistente de mesa ${numeroMesa}.`;
+            document.getElementById("saludo").innerHTML = mensaje;
+
+            setTimeout(() => {
+                preguntarNombreUsuario();
+            }, 2000);
+        }
+
+        // Pregunta si el usuario desea ingresar su nombre
+        function preguntarNombreUsuario() {
+            let respuesta = confirm("¿Quieres que te llamemos por tu nombre?");
+            if (respuesta) {
+                document.getElementById("nombre-container").style.display = "block";
+            } else {
+                localStorage.setItem("nombreCliente", "Invitado");
+            }
+        }
+
+        // Guardar el nombre del cliente
         function guardarNombre() {
             let nombre = document.getElementById("nombre").value.trim();
             if (nombre !== "") {
                 localStorage.setItem("nombreCliente", nombre);
-                mostrarSaludo();
-                reiniciarInactividad();
+                alert(`¡Gracias, ${nombre}! Ahora te llamaremos por tu nombre.`);
             } else {
                 alert("Por favor, ingresa un nombre válido.");
             }
+            document.getElementById("nombre-container").style.display = "none";
         }
-
-        // Guardar calificación del usuario
-        function guardarCalificacion(valor) {
-            localStorage.setItem("calificacionUsuario", valor);
-            alert("¡Gracias por tu calificación!");
-        }
-
-        // Guardar comentario del usuario
-        function guardarComentario() {
-            let comentario = document.getElementById("comentarios").value.trim();
-            if (comentario !== "") {
-                localStorage.setItem("comentarioUsuario", comentario);
-                alert("¡Gracias por tu comentario!");
-                document.getElementById("comentarios").value = "";
-            } else {
-                alert("Por favor, ingresa un comentario válido.");
-            }
-        }
-
-        // Sistema de inactividad con vibración
-        let inactividadTimer;
-
-        function reiniciarInactividad() {
-            clearTimeout(inactividadTimer);
-            inactividadTimer = setTimeout(preguntarAntesDeCerrar, 180000);
-        }
-
-        function preguntarAntesDeCerrar() {
-            if ("vibrate" in navigator) {
-                navigator.vibrate([200, 100, 200]);
-            }
-            let respuesta = confirm("¿Deseas seguir en la sesión o finalizar?");
-            if (!respuesta) cerrarSesion();
-            else reiniciarInactividad();
-        }
-
-        function cerrarSesion() {
-            alert("Sesión finalizada.");
-            window.location.href = "https://dehymoss.github.io/eterials-chatbot/";
-        }
-
-        // Detectar actividad del usuario y reiniciar el temporizador
-        document.addEventListener("mousemove", reiniciarInactividad);
-        document.addEventListener("keydown", reiniciarInactividad);
 
         window.onload = function() {
-            mostrarSaludo();
-            reiniciarInactividad();
+            mostrarPresentacion();
         };
     </script>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
-        .boton { padding: 10px 20px; margin: 5px; background-color: #6A0DAD; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .boton {
+            display: block;
+            width: 90%;
+            max-width: 400px;
+            padding: 15px;
+            margin: 10px auto;
+            background-color: #6A0DAD;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 8px;
+        }
         .boton:hover { background-color: #530A8E; }
-        .container { margin-top: 20px; }
+        .container { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px; }
         .feedback-container, .comentarios-container { margin-top: 20px; }
+        .nombre-container { display: none; margin-top: 20px; }
     </style>
 </head>
 <body>
     <h1>Bienvenido al Asistente de Mesa</h1>
     <h2 id="saludo">Cargando...</h2>
 
-    <p>Ingresa tu nombre para personalizar tu experiencia:</p>
-    <input type="text" id="nombre" placeholder="Escribe tu nombre">
-    <button class="boton" onclick="guardarNombre()">Guardar Nombre</button>
+    <div id="nombre-container" class="nombre-container">
+        <p>Escribe tu nombre para personalizar tu experiencia:</p>
+        <input type="text" id="nombre" placeholder="Escribe tu nombre">
+        <button class="boton" onclick="guardarNombre()">Guardar Nombre</button>
+    </div>
 
     <div class="container">
         <h3>Selecciona una opción:</h3>
@@ -103,21 +102,6 @@
         <button class="boton" onclick="window.location.href='galeria.html'">🖼️ Galería</button>
         <button class="boton" onclick="window.location.href='eventos.html'">📅 Próximos eventos</button>
         <button class="boton" onclick="window.location.href='karaoke.html'">🎤 Karaoke</button>
-    </div>
-
-    <div class="feedback-container">
-        <h3>⭐ Califícanos:</h3>
-        <button class="boton" onclick="guardarCalificacion(1)">1 ⭐</button>
-        <button class="boton" onclick="guardarCalificacion(2)">2 ⭐</button>
-        <button class="boton" onclick="guardarCalificacion(3)">3 ⭐</button>
-        <button class="boton" onclick="guardarCalificacion(4)">4 ⭐</button>
-        <button class="boton" onclick="guardarCalificacion(5)">5 ⭐</button>
-    </div>
-
-    <div class="comentarios-container">
-        <h3>✍️ Déjanos tus comentarios:</h3>
-        <textarea id="comentarios" rows="4" cols="40" placeholder="Escribe aquí tu comentario..."></textarea><br>
-        <button class="boton" onclick="guardarComentario()">Enviar</button>
     </div>
 </body>
 </html>
