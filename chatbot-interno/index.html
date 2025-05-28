@@ -27,12 +27,28 @@
             reiniciarInactividad(); // Reiniciar el temporizador cuando se guarda el nombre
         }
 
+        // Guardar calificación del usuario
+        function guardarCalificacion(valor) {
+            localStorage.setItem("calificacionUsuario", valor);
+            alert("¡Gracias por tu calificación!");
+        }
+
+        // Guardar comentario del usuario
+        function guardarComentario() {
+            let comentario = document.getElementById("comentarios").value;
+            if (comentario.trim() !== "") {
+                localStorage.setItem("comentarioUsuario", comentario);
+                alert("¡Gracias por tu comentario!");
+                document.getElementById("comentarios").value = "";
+            }
+        }
+
         // Sistema de inactividad con vibración
         let inactividadTimer;
 
         function reiniciarInactividad() {
             clearTimeout(inactividadTimer);
-            inactividadTimer = setTimeout(preguntarAntesDeCerrar, 180000); // 3 minutos
+            inactividadTimer = setTimeout(preguntarAntesDeCerrar, 180000);
         }
 
         function preguntarAntesDeCerrar() {
@@ -58,12 +74,42 @@
             reiniciarInactividad(); // Iniciar detección de inactividad al cargar
         };
     </script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .boton { padding: 10px 20px; margin: 5px; background-color: #6A0DAD; color: white; border: none; cursor: pointer; }
+        .feedback-container { margin-top: 20px; }
+        .comentarios-container { margin-top: 20px; }
+    </style>
 </head>
 <body>
     <h1>Bienvenido al Asistente de Mesa</h1>
     <h2 id="saludo">Cargando...</h2>
+    
     <p>Ingresa tu nombre para personalizar tu experiencia:</p>
     <input type="text" id="nombre" placeholder="Escribe tu nombre">
-    <button onclick="guardarNombre()">Guardar Nombre</button>
+    <button class="boton" onclick="guardarNombre()">Guardar Nombre</button>
+
+    <h3>Selecciona una opción:</h3>
+    <button class="boton" onclick="location.href='menu.html'">📜 Menú</button>
+    <button class="boton" onclick="location.href='cancionero.html'">🎶 Cancionero</button>
+    <button class="boton" onclick="location.href='mesero.html'">🧑‍🍳 Llamar al mesero</button>
+    <button class="boton" onclick="location.href='galeria.html'">🖼️ Galería</button>
+    <button class="boton" onclick="location.href='eventos.html'">📅 Próximos eventos</button>
+    <button class="boton" onclick="location.href='karaoke.html'">🎤 Karaoke</button>
+
+    <div class="feedback-container">
+        <h3>⭐ Califícanos:</h3>
+        <button class="boton" onclick="guardarCalificacion(1)">1 ⭐</button>
+        <button class="boton" onclick="guardarCalificacion(2)">2 ⭐</button>
+        <button class="boton" onclick="guardarCalificacion(3)">3 ⭐</button>
+        <button class="boton" onclick="guardarCalificacion(4)">4 ⭐</button>
+        <button class="boton" onclick="guardarCalificacion(5)">5 ⭐</button>
+    </div>
+
+    <div class="comentarios-container">
+        <h3>✍️ Déjanos tus comentarios:</h3>
+        <textarea id="comentarios" rows="4" cols="40" placeholder="Escribe aquí tu comentario..."></textarea><br>
+        <button class="boton" onclick="guardarComentario()">Enviar</button>
+    </div>
 </body>
 </html>
