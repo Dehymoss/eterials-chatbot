@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Interno - Eterials</title>
+    <title>Éter - Asistente de Eterials Gastro-Café</title>
     <script>
         // Nombre del chatbot
         const nombreChatbot = "Éter";
@@ -22,13 +22,14 @@
             return "Buenas noches";
         }
 
-        // Mostrar saludo con número de mesa y presentación del chatbot
+        // Mostrar saludo y presentación del chatbot
         function mostrarPresentacion() {
             let saludo = obtenerSaludo();
             let numeroMesa = obtenerNumeroMesa();
-            let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
+            let mensaje = `${saludo}, bienvenido a *Eterials Gastro-Café*. 🌌 Es un placer tenerte aquí en esta hermosa ${saludo.toLowerCase()}. Espero que disfrutes de nuestra selección de bebidas, música y ambiente.  
 
-            let mensaje = `${saludo}, bienvenido a *Eterials*! 🌌 Soy ${nombreChatbot}, tu asistente de mesa ${numeroMesa}.`;
+            Soy ${nombreChatbot}, tu asistente para la mesa ${numeroMesa}. Estoy aquí para ayudarte con el menú, la música y cualquier solicitud que tengas.`;
+
             document.getElementById("saludo").innerHTML = mensaje;
 
             setTimeout(() => {
@@ -80,12 +81,10 @@
         }
         .boton:hover { background-color: #530A8E; }
         .container { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px; }
-        .feedback-container, .comentarios-container { margin-top: 20px; }
         .nombre-container { display: none; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <h1>Bienvenido al Asistente de Mesa</h1>
     <h2 id="saludo">Cargando...</h2>
 
     <div id="nombre-container" class="nombre-container">
