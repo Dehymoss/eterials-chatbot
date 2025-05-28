@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de QR - Eterials</title>
+    <script src="qrcode.min.js"></script>
+</head>
+<body>
+    <h1>Generador de QR para mesas</h1>
+    <label for="mesa">Número de mesa:</label>
+    <input type="number" id="mesa" min="1" max="50">
+    <button onclick="generarQR()">Generar QR</button>
+    <div id="qrcode"></div>
+
+    <script>
+        function generarQR() {
+            let numeroMesa = document.getElementById("mesa").value;
+            let url = `https://eterials.com/chatbot-interno?mesa=${numeroMesa}`;
+            
+            document.getElementById("qrcode").innerHTML = "";
+            new QRCode(document.getElementById("qrcode"), url);
+        }
+    </script>
+</body>
+</html>

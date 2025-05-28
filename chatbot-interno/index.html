@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interno - Eterials</title>
+    <script>
+        // Función para obtener el número de mesa desde la URL
+        function obtenerNumeroMesa() {
+            let params = new URLSearchParams(window.location.search);
+            return params.get("mesa") || "Sin número";
+        }
+
+        // Función para mostrar el saludo con número de mesa y nombre
+        function mostrarSaludo() {
+            let numeroMesa = obtenerNumeroMesa();
+            let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
+
+            document.getElementById("saludo").innerHTML = `¡Hola, ${nombreCliente}! Estás en la mesa ${numeroMesa}.`;
+        }
+
+        // Guardar el nombre del cliente en localStorage
+        function guardarNombre() {
+            let nombre = document.getElementById("nombre").value;
+            localStorage.setItem("nombreCliente", nombre);
+            mostrarSaludo();
+        }
+
+        window.onload = mostrarSaludo;
+    </script>
+</head>
+<body>
+    <h1>Bienvenido al Asistente de Mesa</h1>
+    <h2 id="saludo">Cargando...</h2>
+    <p>Ingresa tu nombre para personalizar tu experiencia:</p>
+    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+    <button onclick="guardarNombre()">Guardar Nombre</button>
+</body>
+</html>
