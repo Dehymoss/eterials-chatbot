@@ -26,15 +26,14 @@
         function mostrarPresentacion() {
             let saludo = obtenerSaludo();
             let numeroMesa = obtenerNumeroMesa();
-            let mensaje = `${saludo}, bienvenido a *Eterials Gastro-Café*. 🌌 Es un placer tenerte aquí en esta hermosa ${saludo.toLowerCase()}. Espero que disfrutes de nuestra selección de bebidas, música y ambiente.  
-
-            Soy ${nombreChatbot}, tu asistente para la mesa ${numeroMesa}. Estoy aquí para ayudarte con el menú, la música y cualquier solicitud que tengas.`;
+            let mensaje = `${saludo}, bienvenido a *Eterials Gastro-Café*.  
+            Soy ${nombreChatbot}, tu asistente en la mesa ${numeroMesa}.`;
 
             document.getElementById("saludo").innerHTML = mensaje;
 
             setTimeout(() => {
                 preguntarNombreUsuario();
-            }, 2000);
+            }, 1500);
         }
 
         // Pregunta si el usuario desea ingresar su nombre
