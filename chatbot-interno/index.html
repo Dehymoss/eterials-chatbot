@@ -24,9 +24,39 @@
             let nombre = document.getElementById("nombre").value;
             localStorage.setItem("nombreCliente", nombre);
             mostrarSaludo();
+            reiniciarInactividad(); // Reiniciar el temporizador cuando se guarda el nombre
         }
 
-        window.onload = mostrarSaludo;
+        // Sistema de inactividad con vibración
+        let inactividadTimer;
+
+        function reiniciarInactividad() {
+            clearTimeout(inactividadTimer);
+            inactividadTimer = setTimeout(preguntarAntesDeCerrar, 180000); // 3 minutos
+        }
+
+        function preguntarAntesDeCerrar() {
+            if ("vibrate" in navigator) {
+                navigator.vibrate([200, 100, 200]); // Vibración para captar atención
+            }
+            let respuesta = confirm("¿Deseas seguir en la sesión o finalizar?");
+            if (!respuesta) cerrarSesion();
+            else reiniciarInactividad(); // Si el usuario sigue, reinicia el temporizador
+        }
+
+        function cerrarSesion() {
+            alert("Sesión finalizada.");
+            window.location.href = "https://dehymoss.github.io/eterials-chatbot/";
+        }
+
+        // Detectar actividad del usuario y reiniciar el temporizador
+        document.addEventListener("mousemove", reiniciarInactividad);
+        document.addEventListener("keydown", reiniciarInactividad);
+
+        window.onload = function() {
+            mostrarSaludo();
+            reiniciarInactividad(); // Iniciar detección de inactividad al cargar
+        };
     </script>
 </head>
 <body>
