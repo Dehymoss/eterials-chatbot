@@ -15,16 +15,19 @@
         function mostrarSaludo() {
             let numeroMesa = obtenerNumeroMesa();
             let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
-
             document.getElementById("saludo").innerHTML = `¡Hola, ${nombreCliente}! Estás en la mesa ${numeroMesa}.`;
         }
 
         // Guardar el nombre del cliente en localStorage
         function guardarNombre() {
-            let nombre = document.getElementById("nombre").value;
-            localStorage.setItem("nombreCliente", nombre);
-            mostrarSaludo();
-            reiniciarInactividad(); // Reiniciar el temporizador cuando se guarda el nombre
+            let nombre = document.getElementById("nombre").value.trim();
+            if (nombre !== "") {
+                localStorage.setItem("nombreCliente", nombre);
+                mostrarSaludo();
+                reiniciarInactividad();
+            } else {
+                alert("Por favor, ingresa un nombre válido.");
+            }
         }
 
         // Guardar calificación del usuario
@@ -35,11 +38,13 @@
 
         // Guardar comentario del usuario
         function guardarComentario() {
-            let comentario = document.getElementById("comentarios").value;
-            if (comentario.trim() !== "") {
+            let comentario = document.getElementById("comentarios").value.trim();
+            if (comentario !== "") {
                 localStorage.setItem("comentarioUsuario", comentario);
                 alert("¡Gracias por tu comentario!");
                 document.getElementById("comentarios").value = "";
+            } else {
+                alert("Por favor, ingresa un comentario válido.");
             }
         }
 
@@ -53,11 +58,11 @@
 
         function preguntarAntesDeCerrar() {
             if ("vibrate" in navigator) {
-                navigator.vibrate([200, 100, 200]); // Vibración para captar atención
+                navigator.vibrate([200, 100, 200]);
             }
             let respuesta = confirm("¿Deseas seguir en la sesión o finalizar?");
             if (!respuesta) cerrarSesion();
-            else reiniciarInactividad(); // Si el usuario sigue, reinicia el temporizador
+            else reiniciarInactividad();
         }
 
         function cerrarSesion() {
@@ -71,31 +76,34 @@
 
         window.onload = function() {
             mostrarSaludo();
-            reiniciarInactividad(); // Iniciar detección de inactividad al cargar
+            reiniciarInactividad();
         };
     </script>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
-        .boton { padding: 10px 20px; margin: 5px; background-color: #6A0DAD; color: white; border: none; cursor: pointer; }
-        .feedback-container { margin-top: 20px; }
-        .comentarios-container { margin-top: 20px; }
+        .boton { padding: 10px 20px; margin: 5px; background-color: #6A0DAD; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .boton:hover { background-color: #530A8E; }
+        .container { margin-top: 20px; }
+        .feedback-container, .comentarios-container { margin-top: 20px; }
     </style>
 </head>
 <body>
     <h1>Bienvenido al Asistente de Mesa</h1>
     <h2 id="saludo">Cargando...</h2>
-    
+
     <p>Ingresa tu nombre para personalizar tu experiencia:</p>
     <input type="text" id="nombre" placeholder="Escribe tu nombre">
     <button class="boton" onclick="guardarNombre()">Guardar Nombre</button>
 
-    <h3>Selecciona una opción:</h3>
-    <button class="boton" onclick="location.href='menu.html'">📜 Menú</button>
-    <button class="boton" onclick="location.href='cancionero.html'">🎶 Cancionero</button>
-    <button class="boton" onclick="location.href='mesero.html'">🧑‍🍳 Llamar al mesero</button>
-    <button class="boton" onclick="location.href='galeria.html'">🖼️ Galería</button>
-    <button class="boton" onclick="location.href='eventos.html'">📅 Próximos eventos</button>
-    <button class="boton" onclick="location.href='karaoke.html'">🎤 Karaoke</button>
+    <div class="container">
+        <h3>Selecciona una opción:</h3>
+        <button class="boton" onclick="window.location.href='menu.html'">📜 Menú</button>
+        <button class="boton" onclick="window.location.href='cancionero.html'">🎶 Cancionero</button>
+        <button class="boton" onclick="window.location.href='mesero.html'">🧑‍🍳 Llamar al mesero</button>
+        <button class="boton" onclick="window.location.href='galeria.html'">🖼️ Galería</button>
+        <button class="boton" onclick="window.location.href='eventos.html'">📅 Próximos eventos</button>
+        <button class="boton" onclick="window.location.href='karaoke.html'">🎤 Karaoke</button>
+    </div>
 
     <div class="feedback-container">
         <h3>⭐ Califícanos:</h3>
