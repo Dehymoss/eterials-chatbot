@@ -28,7 +28,7 @@
             let numeroMesa = obtenerNumeroMesa();
             let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
 
-            let mensaje = `${saludo}, bienvenido a *Eterials Gastro-Café*.  
+            let mensaje = `${saludo}, bienvenido a *Eterials Gastro-Café*.   
             Soy ${nombreChatbot}, tu asistente en la mesa ${numeroMesa}.`;
 
             if (nombreCliente !== "Invitado") {
@@ -55,25 +55,59 @@
             mostrarPresentacion();
         };
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
+        /* Fondo estilo pizarra */
+        body {
+            background-color: #2C2C2C;
+            background-image: url('pizarra-textura.jpg'); /* Añade una textura de pizarra */
+            color: #F3E5AB; /* Color tiza suave */
+            font-family: 'Patrick Hand', cursive;
+            text-align: center;
+        }
+
+        /* Estilo del título con neón */
+        h2 {
+            font-family: 'Caveat Brush', cursive;
+            font-size: 48px;
+            color: #FFD700; /* Dorado suave */
+            text-shadow: 0 0 15px #FFD700, 0 0 25px #FF8C00, 0 0 35px #FF4500; /* Efecto neón */
+        }
+
+        /* Botones estilo placa retro */
         .boton {
             display: block;
             width: 90%;
             max-width: 400px;
             padding: 15px;
             margin: 10px auto;
-            background-color: #6A0DAD;
+            background: linear-gradient(to bottom, #B08D57, #6A492B); /* Efecto bronce envejecido */
             color: white;
-            border: none;
+            border: 3px solid #5C4033; /* Bordes metálicos oscuros */
+            font-size: 20px;
+            text-transform: uppercase;
+            border-radius: 12px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
             cursor: pointer;
-            font-size: 18px;
-            text-align: center;
-            border-radius: 8px;
         }
-        .boton:hover { background-color: #530A8E; }
-        .container { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px; }
-        .nombre-container { display: none; margin-top: 20px; }
+
+        .boton:hover {
+            background: linear-gradient(to bottom, #C19A6B, #8B5A2B);
+            box-shadow: 3px 3px 15px rgba(0,0,0,0.7);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .nombre-container {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
