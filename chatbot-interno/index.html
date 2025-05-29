@@ -9,7 +9,7 @@
         /* Fondo estilo pizarra desgastada */
         body {
             background-color: #2C2C2C;
-            background-image: url('pizarra-textura.jpg'); /* Añade textura con rastros de tiza */
+            background-image: url('pizarra-textura.jpg'); /* Textura realista con rastros de tiza */
             color: #F3E5AB; /* Simulación de escritura en tiza */
             font-family: 'Patrick Hand', cursive;
             text-align: center;
@@ -20,7 +20,7 @@
             font-family: 'Caveat Brush', cursive;
             font-size: 48px;
             color: #FFD700; /* Amarillo neón */
-            text-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00, 0 0 30px #FF4500; /* Brillo cálido */
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00, 0 0 30px #FF4500; /* Brillo equilibrado */
         }
 
         /* Mensaje de bienvenida */
@@ -39,7 +39,7 @@
             margin: 10px auto;
             font-size: 20px;
             color: #FFF;
-            background-color: transparent;
+            background: url('tiza-textura.jpg'); /* Simulando el relleno como si fuera pintado con tiza */
             border: 3px solid white;
             border-radius: 8px;
             text-transform: uppercase;
@@ -54,11 +54,10 @@
             box-shadow: 1px 1px 12px rgba(255,215,0,0.8);
         }
 
-        /* Íconos de redes sociales */
+        /* Íconos de redes sociales alineados en horizontal */
         .redes {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
             gap: 15px;
             margin-top: 20px;
         }
@@ -92,7 +91,7 @@
             let numeroMesa = new URLSearchParams(window.location.search).get("mesa") || "Sin número";
             let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
             
-            let mensaje = `${saludo}, bienvenido. Soy tu asistente de mesa para la mesa ${numeroMesa}.`;
+            let mensaje = `${saludo}, bienvenido. Soy tu asistente para la mesa ${numeroMesa}.`;
 
             if (nombreCliente !== "Invitado") {
                 mensaje += ` ¡Qué gusto verte, ${nombreCliente}!`;
