@@ -3,18 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Éter - Asistente de Eterials Gastro-Café</title>
-    <script>
-        // Nombre del chatbot
-        const nombreChatbot = "Éter";
-
-        // Función para obtener el número de mesa desde la URL
-        function obtenerNumeroMesa() {
-            let params = new URLSearchParams(window.location.search);
-            return params.get("mesa") || "Sin número";
+    <title>Eterials Gastro-Café</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        /* Fondo estilo pizarra desgastada */
+        body {
+            background-color: #2C2C2C;
+            background-image: url('pizarra-textura.jpg'); /* Textura de pizarra con rastros de tiza */
+            color: #F3E5AB; /* Simulando escritura en tiza */
+            font-family: 'Patrick Hand', cursive;
+            text-align: center;
         }
 
-        // Función para determinar el saludo según la hora
+        /* Estilo del título con neón */
+        h1 {
+            font-family: 'Caveat Brush', cursive;
+            font-size: 48px;
+            color: #FFF; /* Blanco tiza */
+            text-shadow: 0 0 10px #FFF, 0 0 15px #E0E0E0, 0 0 20px #A8A8A8; /* Efecto neón suave */
+        }
+
+        /* Mensaje de bienvenida */
+        #saludo {
+            font-size: 24px;
+            color: #FFF;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* Botones con efecto de tiza */
+        .boton {
+            display: inline-block;
+            padding: 10px 18px;
+            margin: 10px;
+            font-size: 18px;
+            color: #FFF;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-family: 'Caveat Brush', cursive;
+            box-shadow: 1px 1px 6px rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+
+        .boton:hover {
+            color: #FFD700;
+            border-color: #FFD700;
+            box-shadow: 1px 1px 10px rgba(255,215,0,0.8);
+        }
+
+        /* Íconos de redes sociales */
+        .redes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .redes a {
+            font-size: 24px;
+            color: #FFF;
+            text-decoration: none;
+            border: 2px solid white;
+            padding: 8px;
+            border-radius: 50%;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .redes a:hover {
+            color: #FFD700;
+            border-color: #FFD700;
+            box-shadow: 2px 2px 12px rgba(255,215,0,0.8);
+        }
+    </style>
+    <script>
         function obtenerSaludo() {
             let hora = new Date().getHours();
             if (hora >= 6 && hora < 12) return "Buenos días";
@@ -22,28 +84,25 @@
             return "Buenas noches";
         }
 
-        // Mostrar saludo y presentación del chatbot
-        function mostrarPresentacion() {
+        function mostrarSaludo() {
             let saludo = obtenerSaludo();
-            let numeroMesa = obtenerNumeroMesa();
+            let numeroMesa = new URLSearchParams(window.location.search).get("mesa") || "Sin número";
             let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
-
-            let mensaje = `${saludo}, bienvenido a *Eterials Gastro-Café*.   
-            Soy ${nombreChatbot}, tu asistente en la mesa ${numeroMesa}.`;
+            
+            let mensaje = `${saludo}, bienvenido. Soy tu asistente de mesa para la mesa ${numeroMesa}.`;
 
             if (nombreCliente !== "Invitado") {
-                mensaje += ` ¡Qué gusto tenerte aquí, ${nombreCliente}!`;
+                mensaje += ` ¡Qué gusto verte, ${nombreCliente}!`;
             }
 
             document.getElementById("saludo").innerHTML = mensaje;
         }
 
-        // Guardar el nombre del cliente y actualizar el saludo
         function guardarNombre() {
             let nombre = document.getElementById("nombre").value.trim();
             if (nombre !== "") {
                 localStorage.setItem("nombreCliente", nombre);
-                mostrarPresentacion(); // Se actualiza el saludo en pantalla
+                mostrarSaludo();
                 alert(`¡Gracias, ${nombre}! Ahora te llamaremos por tu nombre.`);
             } else {
                 alert("Por favor, ingresa un nombre válido.");
@@ -51,69 +110,14 @@
             document.getElementById("nombre-container").style.display = "none";
         }
 
-        window.onload = function() {
-            mostrarPresentacion();
-        };
+        window.onload = mostrarSaludo;
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick+Hand&display=swap" rel="stylesheet">
-    <style>
-        /* Fondo estilo pizarra */
-        body {
-            background-color: #2C2C2C;
-            background-image: url('pizarra-textura.jpg'); /* Añade una textura de pizarra */
-            color: #F3E5AB; /* Color tiza suave */
-            font-family: 'Patrick Hand', cursive;
-            text-align: center;
-        }
-
-        /* Estilo del título con neón */
-        h2 {
-            font-family: 'Caveat Brush', cursive;
-            font-size: 48px;
-            color: #FFD700; /* Dorado suave */
-            text-shadow: 0 0 15px #FFD700, 0 0 25px #FF8C00, 0 0 35px #FF4500; /* Efecto neón */
-        }
-
-        /* Botones estilo placa retro */
-        .boton {
-            display: block;
-            width: 90%;
-            max-width: 400px;
-            padding: 15px;
-            margin: 10px auto;
-            background: linear-gradient(to bottom, #B08D57, #6A492B); /* Efecto bronce envejecido */
-            color: white;
-            border: 3px solid #5C4033; /* Bordes metálicos oscuros */
-            font-size: 20px;
-            text-transform: uppercase;
-            border-radius: 12px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            cursor: pointer;
-        }
-
-        .boton:hover {
-            background: linear-gradient(to bottom, #C19A6B, #8B5A2B);
-            box-shadow: 3px 3px 15px rgba(0,0,0,0.7);
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .nombre-container {
-            display: none;
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
+    <h1>Eterials Gastro-Café</h1>
     <h2 id="saludo">Cargando...</h2>
 
-    <div id="nombre-container" class="nombre-container">
+    <div id="nombre-container">
         <p>Escribe tu nombre para personalizar tu experiencia:</p>
         <input type="text" id="nombre" placeholder="Escribe tu nombre">
         <button class="boton" onclick="guardarNombre()">Guardar Nombre</button>
@@ -127,6 +131,13 @@
         <button class="boton" onclick="window.location.href='galeria.html'">🖼️ Galería</button>
         <button class="boton" onclick="window.location.href='eventos.html'">📅 Próximos eventos</button>
         <button class="boton" onclick="window.location.href='karaoke.html'">🎤 Karaoke</button>
+    </div>
+
+    <div class="redes">
+        <a href="https://facebook.com" target="_blank" rel="noopener">📘</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">📷</a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener">🎵</a>
+        <a href="https://goo.gl/maps" target="_blank" rel="noopener">📍</a>
     </div>
 </body>
 </html>
