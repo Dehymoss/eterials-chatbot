@@ -1,0 +1,29 @@
+{
+    "chatbot": {
+        "nombre": "Eterials Assistant",
+        "idioma": "es",
+        "tema": "pizarra",
+        "respuestaAutomatica": true,
+        "mensajeBienvenida": "¡Bienvenido a Eterials! Soy tu asistente virtual."
+    },
+    "mesas": {
+        "total": 15,
+        "qrActivo": true
+    },
+    "admin": {
+        "modoPrueba": false,
+        "notificaciones": true,
+        "actualizacionesAutomaticas": true
+    },
+    "horarios": {
+        "apertura": "08:00",
+        "cierre": "23:00"
+    },
+    "comandos": {
+        "menu": "Muestra el menú del café",
+        "eventos": "Lista los próximos eventos",
+        "mesero": "Solicita asistencia del mesero",
+        "karaoke": "Accede al área de karaoke",
+        "galeria": "Explora imágenes del lugar"
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "eterials-chatbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dehymoss/eterials-chatbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dehymoss/eterials-chatbot/issues"
+  },
+  "homepage": "https://github.com/Dehymoss/eterials-chatbot#readme",
+  "description": ""
+}
