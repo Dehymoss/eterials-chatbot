@@ -6,77 +6,107 @@
     <title>Eterials Gastro-Café</title>
     <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick+Hand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="chatbot-interno/assets/PicoCSS/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        /* Fondo estilo pizarra desgastada */
+        /* Fondo estilo pizarra mejorado */
         body {
             background-color: #2C2C2C;
-            background-image: url('pizarra-textura.jpg'); /* Textura realista con rastros de tiza */
-            color: #F3E5AB; /* Simulación de escritura en tiza */
+            background-image: url('pizarra-textura-HD.jpg'); /* Nueva textura mejorada */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #F3E5AB;
             font-family: 'Patrick Hand', cursive;
             text-align: center;
+            padding: 20px;
         }
 
-        /* Estilo del título con neón */
+        /* Estilo del título con efecto neón */
         h1 {
             font-family: 'Caveat Brush', cursive;
             font-size: 48px;
-            color: #FFD700; /* Amarillo principal */
-            text-shadow: 0 0 10px #FFD700, 0 0 20px #008000, 0 0 30px #006400; /* Brillo equilibrado verde-amarillo */
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700, 0 0 25px #008000, 0 0 35px #006400;
+            animation: animate__fadeIn 1.5s ease-in;
         }
 
-        /* Mensaje de bienvenida */
+        /* Mensaje de bienvenida con animación */
         #saludo {
-            font-size: 24px;
+            font-size: 22px;
             color: #FFF;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            animation: animate__fadeIn 1s ease-in;
         }
 
-        /* Botones con efecto de tiza */
+        /* Botones con efecto de tiza mejorado */
         .boton {
             display: block;
             width: 85%;
             max-width: 350px;
-            padding: 10px;
-            margin: 10px auto;
-            font-size: 18px;
+            padding: 15px;
+            margin: 12px auto;
+            font-size: 20px;
             color: #FFF;
-            background: url('tiza-textura.jpg'); /* Simulando relleno de tiza */
-            border: 3px solid white;
-            border-radius: 8px;
+            background: url('tiza-textura-HD.jpg'); /* Nueva textura */
+            border: 4px solid white;
+            border-radius: 10px;
             text-transform: uppercase;
             font-family: 'Caveat Brush', cursive;
-            box-shadow: 1px 1px 8px rgba(255,255,255,0.5);
+            box-shadow: inset 0 0 8px rgba(255,255,255,0.3), 1px 1px 10px rgba(255,255,255,0.5);
             cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            touch-action: manipulation;
         }
 
-        .boton:hover {
-            color: #FFD700;
-            border-color: #FFD700;
-            box-shadow: 1px 1px 12px rgba(255,215,0,0.8);
+        .boton:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 12px rgba(255,215,0,0.8);
         }
 
-        /* Íconos de redes sociales alineados en horizontal */
+        /* Íconos de redes sociales mejorados */
         .redes {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .redes a {
-            font-size: 24px;
+            font-size: 28px;
             color: #FFF;
             text-decoration: none;
             border: 3px solid white;
-            padding: 8px;
+            padding: 12px;
             border-radius: 50%;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            animation: animate__bounceIn 1.5s ease-in-out;
         }
 
-        .redes a:hover {
+        .redes a:active {
             color: #FFD700;
             border-color: #FFD700;
             box-shadow: 2px 2px 12px rgba(255,215,0,0.8);
+        }
+
+        /* Ajustes para pantallas pequeñas */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            #saludo {
+                font-size: 18px;
+            }
+
+            .boton {
+                font-size: 18px;
+                padding: 12px;
+            }
+
+            .redes a {
+                font-size: 24px;
+                padding: 10px;
+            }
         }
     </style>
     <script>
@@ -91,7 +121,7 @@
             let saludo = obtenerSaludo();
             let numeroMesa = new URLSearchParams(window.location.search).get("mesa") || "Sin número";
             let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
-            
+
             let mensaje = `${saludo}, bienvenido. Soy tu asistente para la mesa ${numeroMesa}.`;
 
             if (nombreCliente !== "Invitado") {
@@ -123,17 +153,17 @@
     <div id="nombre-container">
         <p>Escribe tu nombre para personalizar tu experiencia:</p>
         <input type="text" id="nombre" placeholder="Escribe tu nombre">
-        <button class="boton" onclick="guardarNombre()">Guardar Nombre</button>
+        <button class="boton animate__animated animate__pulse" onclick="guardarNombre()">Guardar Nombre</button>
     </div>
 
     <div class="container">
         <h3>Selecciona una opción:</h3>
-        <button class="boton" onclick="window.location.href='menu.html'">📜 Menú</button>
-        <button class="boton" onclick="window.location.href='cancionero.html'">🎶 Cancionero</button>
-        <button class="boton" onclick="window.location.href='mesero.html'">🧑‍🍳 Llamar al mesero</button>
-        <button class="boton" onclick="window.location.href='galeria.html'">🖼️ Galería</button>
-        <button class="boton" onclick="window.location.href='eventos.html'">📅 Próximos eventos</button>
-        <button class="boton" onclick="window.location.href='karaoke.html'">🎤 Karaoke</button>
+        <button class="boton animate__animated animate__pulse" onclick="window.location.href='menu.html'">📜 Menú</button>
+        <button class="boton animate__animated animate__pulse" onclick="window.location.href='cancionero.html'">🎶 Cancionero</button>
+        <button class="boton animate__animated animate__pulse" onclick="window.location.href='mesero.html'">🧑‍🍳 Llamar al mesero</button>
+        <button class="boton animate__animated animate__pulse" onclick="window.location.href='galeria.html'">🖼️ Galería</button>
+        <button class="boton animate__animated animate__pulse" onclick="window.location.href='eventos.html'">📅 Próximos eventos</button>
+        <button class="boton animate__animated animate__pulse" onclick="window.location.href='karaoke.html'">🎤 Karaoke</button>
     </div>
 
     <div class="redes">
