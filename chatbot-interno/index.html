@@ -11,7 +11,7 @@
         /* Fondo estilo pizarra mejorado */
         body {
             background-color: #2C2C2C;
-            background-image: url('pizarra-textura-HD.jpg'); /* Nueva textura mejorada */
+            background-image: url('pizarra-textura-HD.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -38,29 +38,41 @@
             animation: animate__fadeIn 1s ease-in;
         }
 
-        /* Botones con efecto de tiza mejorado */
+        /* Botones con colores de tiza y efecto mejorado */
         .boton {
             display: block;
-            width: 85%;
-            max-width: 350px;
-            padding: 15px;
-            margin: 12px auto;
-            font-size: 20px;
+            width: auto;
+            min-width: 120px;
+            padding: 12px;
+            margin: 10px auto;
+            font-size: 18px;
+            text-align: center;
             color: #FFF;
-            background: url('tiza-textura-HD.jpg'); /* Nueva textura */
-            border: 4px solid white;
             border-radius: 10px;
             text-transform: uppercase;
             font-family: 'Caveat Brush', cursive;
             box-shadow: inset 0 0 8px rgba(255,255,255,0.3), 1px 1px 10px rgba(255,255,255,0.5);
             cursor: pointer;
-            transition: all 0.3s ease-in-out;
+            transition: all 0.2s ease-in-out;
             touch-action: manipulation;
         }
+
+        /* Colores de tiza para los botones */
+        .boton-azul { background-color: #1E90FF; }
+        .boton-rojo { background-color: #DC143C; }
+        .boton-verde { background-color: #32CD32; }
+        .boton-amarillo { background-color: #FFD700; }
 
         .boton:active {
             transform: scale(0.95);
             box-shadow: 0 0 12px rgba(255,215,0,0.8);
+        }
+
+        /* Separadores gráficos */
+        .separador {
+            width: 80%;
+            margin: 20px auto;
+            border-top: 2px dashed #F3E5AB;
         }
 
         /* Íconos de redes sociales mejorados */
@@ -86,27 +98,6 @@
             color: #FFD700;
             border-color: #FFD700;
             box-shadow: 2px 2px 12px rgba(255,215,0,0.8);
-        }
-
-        /* Ajustes para pantallas pequeñas */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 36px;
-            }
-
-            #saludo {
-                font-size: 18px;
-            }
-
-            .boton {
-                font-size: 18px;
-                padding: 12px;
-            }
-
-            .redes a {
-                font-size: 24px;
-                padding: 10px;
-            }
         }
     </style>
     <script>
@@ -150,20 +141,20 @@
     <h1>Eterials Gastro-Café</h1>
     <h2 id="saludo">Cargando...</h2>
 
+    <div class="separador"></div>
+
     <div id="nombre-container">
         <p>Escribe tu nombre para personalizar tu experiencia:</p>
         <input type="text" id="nombre" placeholder="Escribe tu nombre">
-        <button class="boton animate__animated animate__pulse" onclick="guardarNombre()">Guardar Nombre</button>
+        <button class="boton boton-amarillo animate__animated animate__pulse" onclick="guardarNombre()">Guardar Nombre</button>
     </div>
 
     <div class="container">
         <h3>Selecciona una opción:</h3>
-        <button class="boton animate__animated animate__pulse" onclick="window.location.href='menu.html'">📜 Menú</button>
-        <button class="boton animate__animated animate__pulse" onclick="window.location.href='cancionero.html'">🎶 Cancionero</button>
-        <button class="boton animate__animated animate__pulse" onclick="window.location.href='mesero.html'">🧑‍🍳 Llamar al mesero</button>
-        <button class="boton animate__animated animate__pulse" onclick="window.location.href='galeria.html'">🖼️ Galería</button>
-        <button class="boton animate__animated animate__pulse" onclick="window.location.href='eventos.html'">📅 Próximos eventos</button>
-        <button class="boton animate__animated animate__pulse" onclick="window.location.href='karaoke.html'">🎤 Karaoke</button>
+        <button class="boton boton-azul animate__animated animate__pulse" onclick="window.location.href='menu.html'">📜 Menú</button>
+        <button class="boton boton-rojo animate__animated animate__pulse" onclick="window.location.href='cancionero.html'">🎶 Cancionero</button>
+        <button class="boton boton-verde animate__animated animate__pulse" onclick="window.location.href='mesero.html'">🧑‍🍳 Llamar al mesero</button>
+        <button class="boton boton-amarillo animate__animated animate__pulse" onclick="window.location.href='galeria.html'">🖼️ Galería</button>
     </div>
 
     <div class="redes">
