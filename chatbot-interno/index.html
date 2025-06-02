@@ -64,11 +64,6 @@
         .boton-amarillo { background-color: rgba(255, 239, 148, 0.8); }
         .boton-morado { background-color: rgba(216, 191, 216, 0.8); }
 
-        .boton:active {
-            transform: scale(0.95);
-            box-shadow: 0 0 12px rgba(255,215,0,0.8);
-        }
-
         /* Separadores */
         .separador {
             width: 80%;
@@ -76,7 +71,48 @@
             border-top: 2px dashed #F3E5AB;
         }
 
-        /* Íconos de redes sociales mejorados */
+        /* Cajas de texto para calificación y comentarios */
+        .input-container {
+            width: 80%;
+            margin: 15px auto;
+            text-align: left;
+        }
+
+        .input-container label {
+            font-size: 18px;
+            color: #FFD700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+        }
+
+        .input-container textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            background: url('textura-crayola-rayada-HD.jpg'); /* Textura crayola */
+            color: #000;
+            resize: none;
+        }
+
+        .input-container button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(255, 215, 0, 0.8);
+            color: #000;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .input-container button:hover {
+            background-color: rgba(218, 165, 32, 0.8);
+        }
+
+        /* Íconos de redes sociales */
         .redes {
             display: flex;
             justify-content: center;
@@ -92,51 +128,8 @@
             padding: 12px;
             border-radius: 50%;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-            animation: animate__bounceIn 1.5s ease-in-out;
-        }
-
-        .redes a:active {
-            color: #FFD700;
-            border-color: #FFD700;
-            box-shadow: 2px 2px 12px rgba(255,215,0,0.8);
         }
     </style>
-    <script>
-        function obtenerSaludo() {
-            let hora = new Date().getHours();
-            if (hora >= 6 && hora < 12) return "Buenos días";
-            if (hora >= 12 && hora < 18) return "Buenas tardes";
-            return "Buenas noches";
-        }
-
-        function mostrarSaludo() {
-            let saludo = obtenerSaludo();
-            let numeroMesa = new URLSearchParams(window.location.search).get("mesa") || "Sin número";
-            let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
-
-            let mensaje = `${saludo}, bienvenido. Soy tu asistente para la mesa ${numeroMesa}.`;
-
-            if (nombreCliente !== "Invitado") {
-                mensaje += ` ¡Qué gusto verte, ${nombreCliente}!`;
-            }
-
-            document.getElementById("saludo").innerHTML = mensaje;
-        }
-
-        function guardarNombre() {
-            let nombre = document.getElementById("nombre").value.trim();
-            if (nombre !== "") {
-                localStorage.setItem("nombreCliente", nombre);
-                mostrarSaludo();
-                alert(`¡Gracias, ${nombre}! Ahora te llamaremos por tu nombre.`);
-            } else {
-                alert("Por favor, ingresa un nombre válido.");
-            }
-            document.getElementById("nombre-container").style.display = "none";
-        }
-
-        window.onload = mostrarSaludo;
-    </script>
 </head>
 <body>
     <h1>Eterials Gastro-Café</h1>
@@ -144,22 +137,26 @@
 
     <div class="separador"></div>
 
-    <div id="nombre-container">
-        <p>Escribe tu nombre para personalizar tu experiencia:</p>
-        <input type="text" id="nombre" placeholder="Escribe tu nombre">
-        <button class="boton boton-amarillo animate__animated animate__pulse" onclick="guardarNombre()">Guardar Nombre</button>
-    </div>
-
     <div class="container">
         <h3>Selecciona una opción:</h3>
-        <button class="boton boton-azul animate__animated animate__pulse" onclick="window.open('https://eterialsgastrocafe3636.yuumi.co?mode=qr&branch=783', '_blank')"> 📜 Menú</button>
+        <button class="boton boton-azul" onclick="window.open('https://eterialsgastrocafe3636.yuumi.co?mode=qr&branch=783', '_blank')">📜 Menú</button>
         <button class="boton boton-rojo">🎶 Cancionero</button>
         <button class="boton boton-verde">🧑‍🍳 Llamar al mesero</button>
         <button class="boton boton-amarillo">🖼️ Galería</button>
         <button class="boton boton-morado">📅 Próximos eventos</button>
         <button class="boton boton-azul">🎤 Karaoke</button>
-        <button class="boton boton-rojo">⭐ Califícanos</button>
-        <button class="boton boton-verde">✏️ Déjanos tus comentarios</button>
+    </div>
+
+    <div class="input-container">
+        <label for="calificacion">⭐ Califícanos:</label>
+        <textarea id="calificacion" placeholder="Escribe tu calificación aquí..."></textarea>
+        <button onclick="alert('¡Gracias por tu calificación!')">Enviar</button>
+    </div>
+
+    <div class="input-container">
+        <label for="comentarios">✏️ Déjanos tus comentarios:</label>
+        <textarea id="comentarios" placeholder="Escribe tus comentarios aquí..."></textarea>
+        <button onclick="alert('¡Gracias por tu comentario!')">Enviar</button>
     </div>
 
     <div class="redes">
