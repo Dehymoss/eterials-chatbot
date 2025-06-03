@@ -1,0 +1,205 @@
+body {
+            background-color: #232323;
+            background-image: url('pizarra-textura-HD.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #F3E5AB;
+            font-family: 'Patrick Hand', cursive;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-family: 'Caveat Brush', cursive;
+            font-size: 54px;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            /* Efecto neón */
+            text-shadow:
+                0 0 8px #fff,
+                0 0 20px #fff,
+                0 0 2px #fff,
+                2px 2px 0 #00ffe7,
+                0 0 40px #00ffe7;
+            filter: blur(0.2px);
+        }
+        h2, h3, label, #saludo, .estrella, .redes a, .boton, textarea, input[type="text"] {
+            font-family: 'Patrick Hand', cursive;
+            color: #fff;
+            text-shadow:
+                0 1px 0 #fff,
+                0 2px 0 #fff,
+                0 0 5px #fff,
+                0 1px 3px rgba(0,0,0,0.2);
+            filter: blur(0.2px);
+        }
+        h2, h3 {
+            margin-bottom: 10px;
+        }
+        #saludo {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .boton {
+            display: block;
+            width: 80%;
+            padding: 12px;
+            margin: 10px auto;
+            font-size: 20px;
+            border-radius: 16px;
+            border: 3px dashed #fff;
+            background: repeating-linear-gradient(
+                135deg,
+                #fff 0px, #fff 2px,
+                transparent 2px, transparent 8px
+            ), rgba(255,255,255,0.08);
+            color: #232323;
+            font-family: 'Patrick Hand', cursive;
+            box-shadow: 0 2px 8px #000, 0 0 10px #fff;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            text-shadow:
+                0 1px 0 #fff,
+                0 0 5px #fff;
+            filter: blur(0.2px);
+            position: relative;
+            overflow: hidden;
+        }
+        .boton-amarillo {
+            background: repeating-linear-gradient(
+                135deg,
+                #fffbe7 0px, #fffbe7 2px,
+                #FFD700 2px, #FFD700 12px
+            );
+            color: #6d5c00;
+            border-color: #FFD700;
+        }
+        .boton-azul {
+            background: repeating-linear-gradient(
+                135deg,
+                #e3f2fd 0px, #e3f2fd 2px,
+                #2196F3 2px, #2196F3 12px
+            );
+            color: #0d3056;
+            border-color: #90caf9;
+        }
+        .boton-rojo {
+            background: repeating-linear-gradient(
+                135deg,
+                #ffebee 0px, #ffebee 2px,
+                #E53935 2px, #E53935 12px
+            );
+            color: #6d1b1b;
+            border-color: #ff8a80;
+        }
+        .boton-verde {
+            background: repeating-linear-gradient(
+                135deg,
+                #e8f5e9 0px, #e8f5e9 2px,
+                #43A047 2px, #43A047 12px
+            );
+            color: #1b5e20;
+            border-color: #a5d6a7;
+        }
+        .boton-morado {
+            background: repeating-linear-gradient(
+                135deg,
+                #f3e5f5 0px, #f3e5f5 2px,
+                #8E24AA 2px, #8E24AA 12px
+            );
+            color: #4a148c;
+            border-color: #ce93d8;
+        }
+        .boton:hover {
+            box-shadow: 0 0 20px #fff, 0 4px 0 #000;
+            filter: blur(0.5px);
+            opacity: 0.95;
+        }
+        .separador {
+            width: 80%;
+            margin: 20px auto;
+            border-top: 3px dashed #fff;
+            opacity: 0.5;
+            filter: blur(0.2px);
+        }
+        .input-container {
+            width: 80%;
+            margin: 15px auto;
+            text-align: left;
+        }
+        .input-container label {
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .input-container textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 2px dashed #fff;
+            background: rgba(0,0,0,0.2);
+            color: #FFF;
+            resize: none;
+            font-family: 'Patrick Hand', cursive;
+            box-shadow: 0 0 10px #fff;
+            text-shadow:
+                0 1px 0 #fff,
+                0 0 5px #fff;
+            filter: blur(0.2px);
+        }
+        .input-container textarea::placeholder, input[type="text"]::placeholder {
+            color: #fff;
+            opacity: 0.7;
+            font-style: italic;
+        }
+        .redes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .redes a {
+            font-size: 32px;
+            color: #FFF;
+            text-decoration: none;
+            border: 3px dashed #fff;
+            padding: 12px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.2);
+            transition: box-shadow 0.2s, color 0.2s;
+        }
+        .redes a:hover {
+            color: #FFD700;
+            box-shadow: 0 0 20px #FFD700, 0 0 10px #fff;
+            border-color: #FFD700;
+        }
+        /* Estrellas de calificación estilo tiza */
+        .estrellas {
+            font-size: 2.5rem;
+            direction: rtl;
+            display: flex;
+            gap: 5px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+            margin-bottom: 10px;
+        }
+        .estrella {
+            color: #fff;
+            text-shadow:
+                0 1px 0 #fff,
+                0 2px 0 #fff,
+                0 0 5px #fff;
+            filter: blur(0.2px);
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+        .estrella.seleccionada,
+        .estrella.activa {
+            color: #FFD700;
+            text-shadow:
+                0 0 10px #FFD700,
+                0 0 20px #fff,
+                0 1px 0 #fff;
+        }
