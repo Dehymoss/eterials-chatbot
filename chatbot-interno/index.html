@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eterials Gastro-Café</title>
     <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick+Hand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="chatbot-interno/assets/PicoCSS/pico.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
             background-color: #232323;
@@ -19,46 +17,37 @@
             text-align: center;
             padding: 20px;
         }
-        h1, h2, h3, label, .boton, .estrella, .redes a {
-            font-family: 'Patrick Hand', cursive;
-            text-shadow:
-                0 1px 0 #fff,
-                0 2px 0 #fff,
-                0 3px 0 #fff,
-                0 4px 0 #fff,
-                0 5px 0 #fff,
-                0 6px 1px rgba(0,0,0,0.1),
-                0 0 5px #fff,
-                0 1px 3px rgba(0,0,0,0.3);
-        }
         h1 {
             font-family: 'Caveat Brush', cursive;
             font-size: 54px;
-            color: #FFF;
+            color: #fff;
             letter-spacing: 2px;
             margin-bottom: 10px;
+            /* Efecto neón */
             text-shadow:
                 0 0 8px #fff,
                 0 0 20px #fff,
                 0 0 2px #fff,
-                2px 2px 0 #000,
-                0 0 40px #fff;
+                2px 2px 0 #00ffe7,
+                0 0 40px #00ffe7;
             filter: blur(0.2px);
         }
-        h2, h3 {
-            color: #FFF;
-            margin-bottom: 10px;
-            filter: blur(0.2px);
-        }
-        #saludo {
-            font-size: 22px;
-            color: #FFF;
+        h2, h3, label, #saludo, .estrella, .redes a, .boton, textarea, input[type="text"] {
+            font-family: 'Patrick Hand', cursive;
+            color: #fff;
             text-shadow:
                 0 1px 0 #fff,
                 0 2px 0 #fff,
                 0 0 5px #fff,
-                2px 2px 0 #000;
-            animation: animate__fadeIn 1s ease-in;
+                0 1px 3px rgba(0,0,0,0.2);
+            filter: blur(0.2px);
+        }
+        h2, h3 {
+            margin-bottom: 10px;
+        }
+        #saludo {
+            font-size: 22px;
+            margin-bottom: 20px;
         }
         .boton {
             display: block;
@@ -66,53 +55,74 @@
             padding: 12px;
             margin: 10px auto;
             font-size: 20px;
-            text-align: center;
-            color: #FFF;
-            border-radius: 12px;
+            border-radius: 16px;
+            border: 3px dashed #fff;
+            background: repeating-linear-gradient(
+                135deg,
+                #fff 0px, #fff 2px,
+                transparent 2px, transparent 8px
+            ), rgba(255,255,255,0.08);
+            color: #232323;
             font-family: 'Patrick Hand', cursive;
-            border: 2px dashed #fff;
-            background: rgba(0,0,0,0.3);
-            box-shadow: 0 4px 0 #000, 0 0 10px #fff;
+            box-shadow: 0 2px 8px #000, 0 0 10px #fff;
             cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            touch-action: manipulation;
-            background-blend-mode: lighten;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
             text-shadow:
                 0 1px 0 #fff,
-                0 2px 0 #fff,
                 0 0 5px #fff;
             filter: blur(0.2px);
-        }
-        .boton:hover {
-            background: rgba(255,255,255,0.1);
-            color: #FFD700;
-            border-color: #FFD700;
-            box-shadow: 0 0 20px #FFD700, 0 4px 0 #000;
+            position: relative;
+            overflow: hidden;
         }
         .boton-amarillo {
-            color: #FFD700 !important;
-            border-color: #FFD700 !important;
-            background: rgba(255,255,0,0.08);
+            background: repeating-linear-gradient(
+                135deg,
+                #fffbe7 0px, #fffbe7 2px,
+                #FFD700 2px, #FFD700 12px
+            );
+            color: #6d5c00;
+            border-color: #FFD700;
         }
         .boton-azul {
-            color: #90caf9 !important;
-            border-color: #90caf9 !important;
-            background: rgba(33,150,243,0.08);
+            background: repeating-linear-gradient(
+                135deg,
+                #e3f2fd 0px, #e3f2fd 2px,
+                #2196F3 2px, #2196F3 12px
+            );
+            color: #0d3056;
+            border-color: #90caf9;
         }
         .boton-rojo {
-            color: #ff8a80 !important;
-            border-color: #ff8a80 !important;
-            background: rgba(229,57,53,0.08);
+            background: repeating-linear-gradient(
+                135deg,
+                #ffebee 0px, #ffebee 2px,
+                #E53935 2px, #E53935 12px
+            );
+            color: #6d1b1b;
+            border-color: #ff8a80;
         }
         .boton-verde {
-            color: #a5d6a7 !important;
-            border-color: #a5d6a7 !important;
-            background: rgba(67,160,71,0.08);
+            background: repeating-linear-gradient(
+                135deg,
+                #e8f5e9 0px, #e8f5e9 2px,
+                #43A047 2px, #43A047 12px
+            );
+            color: #1b5e20;
+            border-color: #a5d6a7;
         }
         .boton-morado {
-            color: #ce93d8 !important;
-            border-color: #ce93d8 !important;
-            background: rgba(142,36,170,0.08);
+            background: repeating-linear-gradient(
+                135deg,
+                #f3e5f5 0px, #f3e5f5 2px,
+                #8E24AA 2px, #8E24AA 12px
+            );
+            color: #4a148c;
+            border-color: #ce93d8;
+        }
+        .boton:hover {
+            box-shadow: 0 0 20px #fff, 0 4px 0 #000;
+            filter: blur(0.5px);
+            opacity: 0.95;
         }
         .separador {
             width: 80%;
@@ -128,15 +138,10 @@
         }
         .input-container label {
             font-size: 20px;
-            color: #FFF;
-            text-shadow:
-                0 1px 0 #fff,
-                0 2px 0 #fff,
-                0 0 5px #fff;
             margin-bottom: 8px;
             display: block;
         }
-        .input-container textarea {
+        .input-container textarea, input[type="text"] {
             width: 100%;
             padding: 10px;
             font-size: 18px;
@@ -152,7 +157,7 @@
                 0 0 5px #fff;
             filter: blur(0.2px);
         }
-        .input-container textarea::placeholder {
+        .input-container textarea::placeholder, input[type="text"]::placeholder {
             color: #fff;
             opacity: 0.7;
             font-style: italic;
@@ -170,10 +175,6 @@
             border: 3px dashed #fff;
             padding: 12px;
             border-radius: 50%;
-            text-shadow:
-                0 1px 0 #fff,
-                0 2px 0 #fff,
-                0 0 5px #fff;
             background: rgba(0,0,0,0.2);
             transition: box-shadow 0.2s, color 0.2s;
         }
@@ -182,14 +183,14 @@
             box-shadow: 0 0 20px #FFD700, 0 0 10px #fff;
             border-color: #FFD700;
         }
-        /* Estrellas de calificación */
+        /* Estrellas de calificación estilo tiza */
         .estrellas {
             font-size: 2.5rem;
             direction: rtl;
             display: flex;
             gap: 5px;
             cursor: pointer;
-            -webkit-user-select: none; /* Compatibilidad iOS/Safari */
+            -webkit-user-select: none;
             user-select: none;
             margin-bottom: 10px;
         }
