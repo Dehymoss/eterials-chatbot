@@ -4,30 +4,54 @@ function obtenerSaludo() {
     if (hora >= 12 && hora < 18) return "Buenas tardes";
     return "Buenas noches";
 }
+
 function mostrarSaludo() {
     let saludo = obtenerSaludo();
     let numeroMesa = new URLSearchParams(window.location.search).get("mesa") || "Sin número";
-    let nombreCliente = localStorage.getItem("nombreCliente") || "Invitado";
-    let mensaje = `${saludo}, bienvenido. Soy tu asistente para la mesa ${numeroMesa}.`;
+    let nombreCliente = sessionStorage.getItem("nombreCliente") || "Invitado";
+    let mensaje = `<span class="saludo-destacado">${saludo} 👋</span><br>
+    <span class="saludo-mensaje">
+        ¡Bienvenido${nombreCliente !== "Invitado" ? `, <b>${nombreCliente}</b>` : ""}!<br>
+        Es un placer atenderte en la mesa <b>${numeroMesa}</b>.<br>
+        Si necesitas algo, ¡aquí estoy para ayudarte!
+    </span>`;
     if (nombreCliente !== "Invitado") {
-        mensaje += ` ¡Qué gusto verte, ${nombreCliente}!`;
+        document.getElementById("nombre-container").style.display = "none";
+    } else {
+        document.getElementById("nombre-container").style.display = "block";
     }
     document.getElementById("saludo").innerHTML = mensaje;
 }
+
 function guardarNombre() {
     let nombre = document.getElementById("nombre").value.trim();
     if (nombre !== "") {
-        localStorage.setItem("nombreCliente", nombre);
+        sessionStorage.setItem("nombreCliente", nombre);
         mostrarSaludo();
         alert(`¡Gracias, ${nombre}! Ahora te llamaremos por tu nombre.`);
-        document.getElementById("nombre-container").style.display = "none";
     } else {
         alert("Por favor, ingresa un nombre válido.");
     }
 }
+
+// --- Inactividad: cerrar sesión tras 10 minutos (600000 ms) ---
+let inactividadTimeout;
+function resetInactividad() {
+    clearTimeout(inactividadTimeout);
+    inactividadTimeout = setTimeout(() => {
+        sessionStorage.clear();
+        location.reload();
+    }, 600000); // 10 minutos
+}
+["click", "mousemove", "keydown", "scroll", "touchstart"].forEach(evt =>
+    document.addEventListener(evt, resetInactividad)
+);
+
 // Estrellas de calificación
 document.addEventListener('DOMContentLoaded', function () {
     mostrarSaludo();
+    resetInactividad();
+
     const estrellas = document.querySelectorAll('.estrella');
     let calificacionSeleccionada = 0;
 
