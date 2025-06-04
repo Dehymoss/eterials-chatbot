@@ -392,10 +392,10 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 /* --- Efecto de humo y notas --- */
 .humareda {
     position: fixed;
-    left: 72px;
+    left: 40px; /* más cerca de la taza */
     bottom: 60px;
-    width: 140px;
-    height: 100vh;
+    width: 120px;
+    height: 260px; /* solo sobre la taza */
     pointer-events: none;
     z-index: 20;
     overflow: visible;
