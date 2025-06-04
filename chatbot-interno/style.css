@@ -15,7 +15,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(30, 30, 30, 0.75); /* Ajusta la opacidad a tu gusto */
+    background: rgba(30, 30, 30, 0.75);
     z-index: 0;
     pointer-events: none;
 }
@@ -229,7 +229,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     -webkit-user-select: none;
     user-select: none;
     margin-bottom: 10px;
-    justify-content: center; /* Centra las estrellas */
+    justify-content: center;
 }
 .estrella {
     color: #fffbe7;
@@ -284,15 +284,13 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 
 /* --- Contenedor central para alinear y unificar anchos --- */
 .contenedor-central {
-    max-width: 520px; /* Ajusta según el botón más largo */
+    max-width: 520px;
     margin: 0 auto;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-/* Ajusta botones e inputs al 100% del contenedor */
 .contenedor-central .boton,
 .contenedor-central .input-container,
 .contenedor-central .separador {
@@ -310,12 +308,11 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     display: block;
     margin-bottom: 6px;
 }
-
 .saludo-mensaje {
-    color: #a5d8ff; /* Azul tiza elegante */
+    color: #a5d8ff;
     font-size: 1.25rem;
     text-shadow: 0 1px 4px #232323, 0 0 2px #fff;
-    font-family: 'Caveat', cursive; /* Cambia a manuscrita */
+    font-family: 'Caveat', cursive;
     display: block;
     font-weight: bold;
     letter-spacing: 0.5px;
@@ -337,7 +334,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    overflow: visible; /* Asegura que la humareda se vea fuera del div */
+    overflow: visible;
 }
 .taza-esquina img {
     width: 100%;
@@ -349,8 +346,8 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 
 /* --- Logo estilo tiza --- */
 .logo-eterials {
-    width: 170px;           /* Antes: 120px */
-    max-width: 50vw;        /* Un poco más flexible en pantallas pequeñas */
+    width: 170px;
+    max-width: 50vw;
     margin-bottom: 12px;
     margin-top: 12px;
     filter: drop-shadow(0 2px 8px #232323cc);
@@ -364,13 +361,11 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     margin-right: auto;
     animation: girar-vinilo 2.5s cubic-bezier(0.77,0,0.175,1) 1;
 }
-
 @keyframes girar-vinilo {
     0% { transform: rotate(0deg);}
     80% { transform: rotate(360deg);}
     100% { transform: rotate(360deg);}
 }
-
 @media (max-width: 700px) {
     .taza-esquina {
         display: none;
@@ -385,7 +380,6 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         filter 0.2s;
     cursor: pointer;
 }
-
 .texto-iluminable:hover {
     color: #ffe066;
     text-shadow:
@@ -400,14 +394,14 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     position: fixed;
     left: 72px;
     bottom: 60px;
-    width: 140px; /* Más ancho para más humo */
+    width: 140px;
     height: 100vh;
     pointer-events: none;
     z-index: 20;
     overflow: visible;
 }
 
-/* Capas de humo más intensas y coloridas */
+/* Capas de humo más intensas y coloridas (opcional, puedes eliminar si no usas .humo-extra) */
 .humareda .humo-extra {
     content: "";
     position: absolute;
@@ -436,7 +430,8 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     background: 
         radial-gradient(ellipse at center, rgba(255,255,255,0.32) 60%, rgba(255,224,102,0.22) 80%, transparent 100%),
         radial-gradient(ellipse at 60% 40%, rgba(160,216,255,0.18) 0%, transparent 80%),
-        radial-gradient(ellipse at 40% 60%, rgba(208,179,255,0.15) 0%, transparent 80%);
+        radial-gradient(ellipse at 40% 60%, rgba(208,179,255,0.15) 0%, transparent 80%),
+        radial-gradient(ellipse at 70% 30%, rgba(255,173,173,0.10) 0%, transparent 80%);
     opacity: 0.82;
     border-radius: 50%;
     filter: blur(18px) brightness(1.25);
@@ -445,7 +440,13 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     z-index: 1;
     pointer-events: none;
     animation-delay: calc(var(--i, 0) * 0.8s), calc(var(--i, 0) * 0.8s);
+    will-change: transform, opacity;
 }
+
+/* Tamaño y opacidad variable para cada nube */
+.humo-nube-0, .humo-nube-5, .humo-nube-10 { width: 60px; height: 44px; opacity: 0.88; }
+.humo-nube-2, .humo-nube-7, .humo-nube-12 { width: 48px; height: 32px; opacity: 0.7; }
+.humo-nube-4, .humo-nube-9, .humo-nube-14 { width: 56px; height: 40px; opacity: 0.8; }
 
 /* Notas musicales */
 .nota {
@@ -454,14 +455,30 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     bottom: 0;
     left: 50%;
     transform: translateX(var(--x, 0));
-    animation: flotar-nota 14s linear infinite, bamboleo-nota 10s ease-in-out infinite alternate;
+    animation:
+        flotar-nota 14s linear infinite,
+        bamboleo-nota 10s ease-in-out infinite alternate;
     opacity: 0.85;
     font-size: 2.2rem;
     pointer-events: none;
-    animation-delay: calc(var(--i, 0) * 0.8s), calc(var(--i, 0) * 0.8s);
+    animation-delay:
+        calc(var(--i, 0) * 0.8s),
+        calc(var(--i, 0) * 0.8s);
+    will-change: transform, opacity;
 }
 
-/* Ascenso suave */
+/* Nuevo: giro con un span hijo */
+.nota > span {
+    display: inline-block;
+    animation: girar-nota 12s linear infinite;
+}
+
+@keyframes girar-nota {
+    0% { transform: rotate(-8deg);}
+    50% { transform: rotate(8deg);}
+    100% { transform: rotate(-8deg);}
+}
+
 @keyframes flotar-nube {
     0% {
         transform: translateX(var(--x, 0)) translateY(0) scale(1);
@@ -488,8 +505,6 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         opacity: 0;
     }
 }
-
-/* Bamboleo/ondulación */
 @keyframes bamboleo-nube {
     0% { margin-left: 0px; }
     20% { margin-left: 10px; }
@@ -507,6 +522,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     100% { margin-left: 0px; }
 }
 
+/* Colores y brillos para notas musicales */
 .nota-amarilla {
     color: #ffe066;
     text-shadow: 0 0 8px #ffe066, 0 0 16px #fffbe7;
@@ -549,3 +565,18 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 .humo-nube-12, .nota-12 { --i: 12; --x: 18px; }
 .humo-nube-13, .nota-13 { --i: 13; --x: -12px; }
 .humo-nube-14, .nota-14 { --i: 14; --x: 24px; }
+.humo-nube-15, .nota-15 { --i: 15; --x: 10px; }
+.humo-nube-16, .nota-16 { --i: 16; --x: -16px; }
+.humo-nube-17, .nota-17 { --i: 17; --x: 20px; }
+.humo-nube-18, .nota-18 { --i: 18; --x: -20px; }
+.humo-nube-19, .nota-19 { --i: 19; --x: 14px; }
+
+/* Animación extra para el humo de fondo (opcional) */
+@keyframes humo-ondulante {
+    0% { transform: translateX(-50%) scaleX(1) scaleY(1);}
+    25% { transform: translateX(-48%) scaleX(1.08) scaleY(1.04);}
+    50% { transform: translateX(-52%) scaleX(0.95) scaleY(1.1);}
+    75% { transform: translateX(-49%) scaleX(1.12) scaleY(1.03);}
+    100% { transform: translateX(-50%) scaleX(1) scaleY(1);}
+}
+
