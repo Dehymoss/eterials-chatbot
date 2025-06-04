@@ -262,6 +262,36 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 }
 
 /* --- Media query para móviles --- */
+@media (max-width: 700px) {
+    .humareda {
+        left: 12px;
+        bottom: 24px;
+        width: 60px;
+        height: 120px;
+    }
+    .taza-esquina {
+        left: 0;
+        bottom: 0;
+        width: 80px;
+        max-width: 30vw;
+    }
+    .humo-nube,
+    .nota {
+        font-size: 1.2rem;
+        width: 28px !important;
+        height: 18px !important;
+    }
+    @keyframes flotar-nube {
+        0% { transform: translateX(var(--x, 0)) translateY(0) scale(1); opacity: 0.82; }
+        80% { opacity: 0.65; }
+        100% { transform: translateX(calc(var(--x, 0) * 1.5)) translateY(-40vh) scale(1.2); opacity: 0; }
+    }
+    @keyframes flotar-nota {
+        0% { transform: translateX(var(--x, 0)) translateY(0); opacity: 0.85; }
+        80% { opacity: 0.85; }
+        100% { transform: translateX(calc(var(--x, 0) * 1.5)) translateY(-40vh); opacity: 0; }
+    }
+}
 @media (max-width: 600px) {
     body {
         padding: 8px;
@@ -279,6 +309,11 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     }
     .estrellas {
         font-size: 1.5rem;
+    }
+}
+@media (max-width: 500px) {
+    .humareda {
+        display: none;
     }
 }
 
