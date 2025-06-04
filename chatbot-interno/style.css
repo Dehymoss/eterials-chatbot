@@ -508,30 +508,44 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 }
 
 .nota-amarilla {
-    color: #ffe066;   color: #ffe066;
-    text-shadow: 0 0 8px #ffe066, 0 0 16px #fffbe7;dow: 0 0 8px #ffe066, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #ffe066);adow(0 0 8px #ffe066);
+    color: #ffe066;
+    text-shadow: 0 0 8px #ffe066, 0 0 16px #fffbe7;
+    filter: drop-shadow(0 0 8px #ffe066);
 }
 .nota-rosa {
-    color: #ffadad;   color: #ffadad;
-    text-shadow: 0 0 8px #ffadad, 0 0 16px #fffbe7;ow: 0 0 8px #ffadad, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #ffadad);adow(0 0 8px #ffadad);
+    color: #ffadad;
+    text-shadow: 0 0 8px #ffadad, 0 0 16px #fffbe7;
+    filter: drop-shadow(0 0 8px #ffadad);
 }
 .nota-verde {
-    color: #b2f2bb;   color: #b2f2bb;
-    text-shadow: 0 0 8px #b2f2bb, 0 0 16px #fffbe7;w: 0 0 8px #b2f2bb, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #b2f2bb);adow(0 0 8px #b2f2bb);
+    color: #b2f2bb;
+    text-shadow: 0 0 8px #b2f2bb, 0 0 16px #fffbe7;
+    filter: drop-shadow(0 0 8px #b2f2bb);
 }
 .nota-morada {
-    color: #d0b3ff;   color: #d0b3ff;
-    text-shadow: 0 0 8px #d0b3ff, 0 0 16px #fffbe7;dow: 0 0 8px #d0b3ff, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #d0b3ff);adow(0 0 8px #d0b3ff);
+    color: #d0b3ff;
+    text-shadow: 0 0 8px #d0b3ff, 0 0 16px #fffbe7;
+    filter: drop-shadow(0 0 8px #d0b3ff);
 }
 .nota-azul {
-    color: #a5d8ff;   color: #a5d8ff;
-
-
-
-}    filter: drop-shadow(0 0 8px #a5d8ff);    text-shadow: 0 0 8px #a5d8ff, 0 0 16px #fffbe7;    text-shadow: 0 0 8px #a5d8ff, 0 0 16px #fffbe7;
+    color: #a5d8ff;
+    text-shadow: 0 0 8px #a5d8ff, 0 0 16px #fffbe7;
     filter: drop-shadow(0 0 8px #a5d8ff);
 }
+
+/* Nubes y notas: sincroniza delays y posiciones */
+.humo-nube-0, .nota-0 { --i: 0; --x: -18px; }
+.humo-nube-1, .nota-1 { --i: 1; --x: 12px; }
+.humo-nube-2, .nota-2 { --i: 2; --x: -8px; }
+.humo-nube-3, .nota-3 { --i: 3; --x: 18px; }
+.humo-nube-4, .nota-4 { --i: 4; --x: -8px; }
+.humo-nube-5, .nota-5 { --i: 5; --x: 16px; }
+.humo-nube-6, .nota-6 { --i: 6; --x: -14px; }
+.humo-nube-7, .nota-7 { --i: 7; --x: 8px; }
+.humo-nube-8, .nota-8 { --i: 8; --x: 28px; }
+.humo-nube-9, .nota-9 { --i: 9; --x: -22px; }
+.humo-nube-10, .nota-10 { --i: 10; --x: 10px; }
+.humo-nube-11, .nota-11 { --i: 11; --x: -20px; }
+.humo-nube-12, .nota-12 { --i: 12; --x: 18px; }
+.humo-nube-13, .nota-13 { --i: 13; --x: -12px; }
+.humo-nube-14, .nota-14 { --i: 14; --x: 24px; }
