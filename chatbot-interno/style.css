@@ -263,17 +263,21 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 
 /* --- Media query para móviles --- */
 @media (max-width: 700px) {
-    .humareda {
-        left: 12px;
-        bottom: 24px;
-        width: 60px;
-        height: 120px;
-    }
     .taza-esquina {
-        left: 0;
-        bottom: 0;
-        width: 80px;
-        max-width: 30vw;
+        left: 10px;
+        bottom: 10px;
+        width: 70px;
+        max-width: 28vw;
+        display: flex;
+    }
+    .taza-esquina img {
+        width: 100%;
+    }
+    .humareda {
+        left: 28px;
+        bottom: 55px;
+        width: 70px;
+        height: 120px;
     }
     .humo-nube,
     .nota {
@@ -281,17 +285,9 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         width: 28px !important;
         height: 18px !important;
     }
-    @keyframes flotar-nube {
-        0% { transform: translateX(var(--x, 0)) translateY(0) scale(1); opacity: 0.82; }
-        80% { opacity: 0.65; }
-        100% { transform: translateX(calc(var(--x, 0) * 1.5)) translateY(-40vh) scale(1.2); opacity: 0; }
-    }
-    @keyframes flotar-nota {
-        0% { transform: translateX(var(--x, 0)) translateY(0); opacity: 0.85; }
-        80% { opacity: 0.85; }
-        100% { transform: translateX(calc(var(--x, 0) * 1.5)) translateY(-40vh); opacity: 0; }
-    }
+    /* Puedes ajustar los keyframes si lo deseas */
 }
+
 @media (max-width: 600px) {
     body {
         padding: 8px;
@@ -311,11 +307,21 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         font-size: 1.5rem;
     }
 }
+
 @media (max-width: 500px) {
     .humareda {
         display: none;
     }
 }
+
+/* --- Elimina esta regla para que la taza NO se oculte en móvil --- */
+/*
+@media (max-width: 700px) {
+    .taza-esquina {
+        display: none;
+    }
+}
+*/
 
 /* --- Contenedor central para alinear y unificar anchos --- */
 .contenedor-central {
@@ -377,51 +383,6 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     filter: grayscale(0.2) contrast(1.15) brightness(1.08) drop-shadow(0 4px 16px #232323cc);
     border-radius: 18px;
     display: block;
-}
-
-/* --- Logo estilo tiza --- */
-.logo-eterials {
-    width: 170px;
-    max-width: 50vw;
-    margin-bottom: 12px;
-    margin-top: 12px;
-    filter: drop-shadow(0 2px 8px #232323cc);
-    border-radius: 50%;
-    background: url('assets/chalk-texture.png') repeat;
-    background-blend-mode: lighten;
-    padding: 8px;
-    box-sizing: border-box;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    animation: girar-vinilo 2.5s cubic-bezier(0.77,0,0.175,1) 1;
-}
-@keyframes girar-vinilo {
-    0% { transform: rotate(0deg);}
-    80% { transform: rotate(360deg);}
-    100% { transform: rotate(360deg);}
-}
-@media (max-width: 700px) {
-    .taza-esquina {
-        display: none;
-    }
-}
-
-/* --- Texto iluminable --- */
-.texto-iluminable {
-    transition: 
-        color 0.2s,
-        text-shadow 0.2s,
-        filter 0.2s;
-    cursor: pointer;
-}
-.texto-iluminable:hover {
-    color: #ffe066;
-    text-shadow:
-        0 0 12px #ffe066,
-        0 0 24px #fff,
-        0 1px 0 #fff;
-    filter: brightness(1.15) blur(0.2px);
 }
 
 /* --- Efecto de humo y notas --- */

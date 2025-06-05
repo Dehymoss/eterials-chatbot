@@ -86,3 +86,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+function actualizarSaludo() {
+    const h2Saludo = document.querySelector('.texto-iluminable:nth-of-type(2)');
+    const hora = new Date().getHours();
+    let saludo = "Buenas noches 👋";
+    if (hora >= 6 && hora < 12) {
+        saludo = "Buenos días 👋";
+    } else if (hora >= 12 && hora < 20) {
+        saludo = "Buenas tardes 👋";
+    }
+    if (h2Saludo) {
+        h2Saludo.textContent = saludo;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', actualizarSaludo);
