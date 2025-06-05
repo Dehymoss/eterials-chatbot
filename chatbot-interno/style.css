@@ -285,6 +285,12 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         width: 28px !important;
         height: 18px !important;
     }
+    .logo-eterials {
+        width: 90px;
+        max-width: 36vw;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
     /* Puedes ajustar los keyframes si lo deseas */
 }
 
@@ -309,8 +315,12 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 }
 
 @media (max-width: 500px) {
-    .humareda {
+    /* .humareda {
         display: none;
+    } */
+    .logo-eterials {
+        width: 70px;
+        max-width: 48vw;
     }
 }
 
@@ -574,5 +584,24 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     50% { transform: translateX(-52%) scaleX(0.95) scaleY(1.1);}
     75% { transform: translateX(-49%) scaleX(1.12) scaleY(1.03);}
     100% { transform: translateX(-50%) scaleX(1) scaleY(1);}
+}
+
+/* --- Logo en la parte superior --- */
+.logo-eterials {
+    width: 130px;
+    max-width: 30vw;
+    min-width: 70px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    filter: drop-shadow(0 2px 8px #232323cc);
+    border-radius: 50%;
+    background: url('assets/chalk-texture.png') repeat;
+    background-blend-mode: lighten;
+    padding: 8px;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: girar-vinilo 2.5s cubic-bezier(0.77,0,0.175,1) 1;
 }
 
