@@ -588,7 +588,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 
 /* --- Logo en la parte superior --- */
 .logo-eterials {
-    width: 130px;
+    width: 130px;         /* Escritorio */
     max-width: 30vw;
     min-width: 70px;
     margin-bottom: 12px;
@@ -602,6 +602,30 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    animation: girar-vinilo 2.5s cubic-bezier(0.77,0,0.175,1) 1;
+    animation: girar-vinilo 2.5s linear infinite; /* Animación infinita */
+}
+
+/* --- Modo móvil: sobrescribe solo lo necesario --- */
+@media (max-width: 700px) {
+    .logo-eterials {
+        width: 80px;
+        max-width: 36vw;
+        min-width: 48px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+}
+@media (max-width: 500px) {
+    .logo-eterials {
+        width: 60px;
+        max-width: 40vw;
+        min-width: 40px;
+    }
+}
+
+/* Animación del logo */
+@keyframes girar-vinilo {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
 }
 
