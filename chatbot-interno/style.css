@@ -297,6 +297,9 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         max-width: 100%;
         padding: 4px 0;
         margin: 8px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .input-container input[type="text"],
     .input-container textarea {
@@ -309,14 +312,27 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         margin-bottom: 6px;
     }
     .input-container .boton {
-        width: auto;
-        min-width: unset;
-        max-width: 100%;
+        width: 100%;
+        min-width: 140px;
+        max-width: 260px;
+        margin: 6px 0 0 0;
         font-size: 1rem;
         padding: 7px 16px;
-        margin: 6px 0 0 0;
-        display: inline-block;
+        display: block;
         box-sizing: border-box;
+    }
+    /* Si tienes varios botones juntos, ponlos en un div y aplica esto: */
+    .botones-flex {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+        justify-content: center;
+    }
+    .botones-flex .boton {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+        max-width: 100%;
     }
     .boton {
         width: auto;
