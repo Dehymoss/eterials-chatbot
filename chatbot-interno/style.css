@@ -264,7 +264,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 /* --- Media query para móviles --- */
 @media (max-width: 700px) {
     .taza-esquina {
-        left: 10px;
+        left: 0px; /* Antes: 10px. Ahora más a la izquierda en móvil */
         bottom: 10px;
         width: 70px;
         max-width: 28vw;
@@ -442,7 +442,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 /* --- Taza en esquina inferior --- */
 .taza-esquina {
     position: fixed;
-    left: 32px;
+    left: 8px; /* Antes: 32px. Ahora más a la izquierda */
     bottom: 32px;
     width: 180px;
     height: auto;
@@ -450,7 +450,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     z-index: 10;
     opacity: 0.93;
     pointer-events: none;
-    transition: width 0.3s;
+    transition: width 0.3s, left 0.3s;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -696,5 +696,39 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 @keyframes girar-vinilo {
     0% { transform: rotate(0deg);}
     100% { transform: rotate(360deg);}
+}
+
+@media (max-width: 700px) {
+    .boton {
+        width: 170px; /* Ajusta este valor al ancho de "Próximos eventos" */
+        min-width: 140px;
+        max-width: 100%;
+        display: block;
+        margin: 8px auto;
+        font-size: 1rem;
+        padding: 7px 10px;
+        box-sizing: border-box;
+    }
+    .botones-flex {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+        justify-content: center;
+    }
+    .botones-flex .boton {
+        width: 170px; /* Igual que arriba */
+        min-width: 140px;
+        max-width: 100%;
+        margin: 0;
+    }
+}
+@media (max-width: 500px) {
+    .boton,
+    .botones-flex .boton {
+        width: 150px; /* Un poco más pequeño para pantallas muy chicas */
+        min-width: 120px;
+        font-size: 0.95rem;
+        padding: 6px 6px;
+    }
 }
 
