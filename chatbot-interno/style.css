@@ -337,70 +337,33 @@ body {
 
 /* --- Media query para móviles --- */
 @media (max-width: 700px) {
+    .boton,
+    .input-container .boton {
+        width: 170px;
+        min-width: 140px;
+        max-width: 100%;
+        display: block;
+        margin: 8px auto;
+        font-size: 1rem;
+        padding: 7px 10px;
+        box-sizing: border-box;
+    }
+    .input-container input[type="text"],
+    .input-container textarea {
+        width: 170px !important;
+        min-width: 140px !important;
+        max-width: 100% !important;
+        margin: 0 auto 8px auto !important;
+        font-size: 1rem !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
     .taza-esquina {
-        left: 24px; /* Más separada del borde en móvil */
+        left: 0 !important; /* Totalmente a la izquierda */
         bottom: 10px;
         width: 70px;
         max-width: 28vw;
         display: flex;
-    }
-    .taza-esquina img {
-        width: 100%;
-    }
-    .humareda {
-        left: 28px;
-        bottom: 55px;
-        width: 70px;
-        height: 120px;
-    }
-    .humo-nube,
-    .nota {
-        font-size: 1.2rem;
-        width: 28px !important;
-        height: 18px !important;
-    }
-    .logo-eterials {
-        width: 90px;
-        max-width: 36vw;
-        margin-bottom: 8px;
-        margin-top: 8px;
-    }
-    .input-container {
-        width: 96vw !important;
-        max-width: 420px !important;
-        min-width: 0 !important;
-        margin: 10px auto !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    .input-row {
-        width: 100% !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 0 !important;
-    }
-    .input-row input[type="text"],
-    .input-row textarea {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        margin-bottom: 8px !important;
-        font-size: 1rem !important;
-        box-sizing: border-box !important;
-        text-align: left !important;
-        display: block !important;
-    }
-    .input-container .boton {
-        width: auto !important;
-        min-width: 120px !important;
-        max-width: 100% !important;
-        margin: 8px auto 0 auto !important;
-        display: block !important;
-        font-size: 1rem !important;
-        padding: 7px 16px !important;
-        align-self: center !important;
     }
 }
 @media (max-width: 600px) {
@@ -425,65 +388,27 @@ body {
 
 /* Ajuste extra para pantallas muy pequeñas */
 @media (max-width: 500px) {
-    .input-container {
-        width: 98vw;
-        max-width: 98vw;
-        margin: 6px auto;
-        padding: 0;
+    .boton,
+    .input-container .boton {
+        width: 150px;
+        min-width: 120px;
+        font-size: 0.95rem;
+        padding: 6px 6px;
     }
     .input-container input[type="text"],
     .input-container textarea {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        font-size: 0.97rem;
-        padding: 6px 8px;
-        margin-bottom: 8px;
+        width: 150px !important;
+        min-width: 120px !important;
+        max-width: 100% !important;
+        margin: 0 auto 8px auto !important;
+        font-size: 0.95rem !important;
+        box-sizing: border-box !important;
+        display: block !important;
     }
-    .input-container .boton,
-    .boton {
-        width: auto;
-        min-width: 100px;
-        max-width: 100%;
-        font-size: 0.97rem;
-        padding: 6px 10px;
-        margin: 8px auto 0 auto;
-        display: block;
-        box-sizing: border-box;
-        align-self: center;
-    }
-    .input-row {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: center;
-    }
-    .input-row input[type="text"],
-    .input-row textarea {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        margin-bottom: 8px;
-        display: block;
-    }
-    .input-row .boton {
-        width: auto;
-        min-width: 100px;
-        max-width: 100%;
-        margin: 8px auto 0 auto;
-        display: block;
-        align-self: center;
-    }
-}
-
-/* --- Elimina esta regla para que la taza NO se oculte en móvil --- */
-/*
-@media (max-width: 700px) {
     .taza-esquina {
-        display: none;
+        left: -18px !important; /* Más fuera de la columna de botones */
     }
 }
-*/
 
 /* --- Contenedor central para alinear y unificar anchos --- */
 .contenedor-central {
@@ -779,58 +704,5 @@ body {
 @keyframes girar-vinilo {
     0% { transform: rotate(0deg);}
     100% { transform: rotate(360deg);}
-}
-
-@media (max-width: 700px) {
-    .boton,
-    .input-container .boton {
-        width: 170px;
-        min-width: 140px;
-        max-width: 100%;
-        display: block;
-        margin: 8px auto;
-        font-size: 1rem;
-        padding: 7px 10px;
-        box-sizing: border-box;
-    }
-    .input-container input[type="text"],
-    .input-container textarea {
-        width: 170px !important;
-        min-width: 140px !important;
-        max-width: 100% !important;
-        margin: 0 auto 8px auto !important;
-        font-size: 1rem !important;
-        box-sizing: border-box !important;
-        display: block !important;
-    }
-    .taza-esquina {
-        left: 2vw !important; /* Más pegada al borde izquierdo */
-        bottom: 10px;
-        width: 70px;
-        max-width: 28vw;
-        display: flex;
-    }
-}
-@media (max-width: 500px) {
-    .boton,
-    .input-container .boton {
-        width: 150px;
-        min-width: 120px;
-        font-size: 0.95rem;
-        padding: 6px 6px;
-    }
-    .input-container input[type="text"],
-    .input-container textarea {
-        width: 150px !important;
-        min-width: 120px !important;
-        max-width: 100% !important;
-        margin: 0 auto 8px auto !important;
-        font-size: 0.95rem !important;
-        box-sizing: border-box !important;
-        display: block !important;
-    }
-    .taza-esquina {
-        left: 0 !important; /* Aún más pegada al borde en pantallas muy pequeñas */
-    }
 }
 
