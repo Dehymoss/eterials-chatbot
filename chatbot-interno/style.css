@@ -228,13 +228,13 @@ body {
     font-style: italic;
 }
 .input-container .boton {
-    width: auto;
-    min-width: 70px;
+    width: 80%;
+    min-width: 140px;
     max-width: 100%;
-    font-size: 1rem;
-    padding: 5px 14px;
-    margin: 6px auto 0 auto;
-    display: inline-block;
+    font-size: 22px;
+    padding: 12px;
+    margin: 10px auto;
+    display: block;
     box-sizing: border-box;
 }
 
@@ -366,67 +366,41 @@ body {
         margin-top: 8px;
     }
     .input-container {
-        width: 96vw;
-        max-width: 420px;
-        min-width: 0;
-        margin: 10px auto;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .input-container input[type="text"],
-    .input-container textarea {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        margin-bottom: 8px;
-        font-size: 1rem;
-        box-sizing: border-box;
-        text-align: left;
-        display: block;
-    }
-    .input-container .boton {
-        width: auto;
-        min-width: 120px;
-        max-width: 100%;
-        margin: 8px auto 0 auto;
-        display: block;
-        font-size: 1rem;
-        padding: 7px 16px;
-        align-self: center;
-    }
-    .boton {
-        width: auto;
-        min-width: 120px;
-        max-width: 100%;
-        margin: 8px auto;
-        font-size: 1rem;
-        padding: 7px 16px;
-        display: block;
-        box-sizing: border-box;
+        width: 96vw !important;
+        max-width: 420px !important;
+        min-width: 0 !important;
+        margin: 10px auto !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
     .input-row {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: center;
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
     }
     .input-row input[type="text"],
     .input-row textarea {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        margin-bottom: 8px;
-        display: block;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        margin-bottom: 8px !important;
+        font-size: 1rem !important;
+        box-sizing: border-box !important;
+        text-align: left !important;
+        display: block !important;
     }
-    .input-row .boton {
-        width: auto;
-        min-width: 120px;
-        max-width: 100%;
-        margin: 8px auto 0 auto;
-        display: block;
-        align-self: center;
+    .input-container .boton {
+        width: auto !important;
+        min-width: 120px !important;
+        max-width: 100% !important;
+        margin: 8px auto 0 auto !important;
+        display: block !important;
+        font-size: 1rem !important;
+        padding: 7px 16px !important;
+        align-self: center !important;
     }
 }
 @media (max-width: 600px) {
@@ -838,6 +812,18 @@ body {
         min-width: 120px;
         font-size: 0.95rem;
         padding: 6px 6px;
+    }
+}
+@media (max-width: 700px) {
+    .input-container .boton {
+        width: 170px;
+        min-width: 140px;
+        max-width: 100%;
+        margin: 8px auto;
+        display: block;
+        font-size: 1rem;
+        padding: 7px 10px;
+        box-sizing: border-box;
     }
 }
 
