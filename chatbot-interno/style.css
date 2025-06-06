@@ -291,6 +291,34 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         margin-bottom: 8px;
         margin-top: 8px;
     }
+    .input-container {
+        width: 96%;
+        min-width: unset;
+        max-width: 100%;
+        padding: 6px 0;
+    }
+    .input-container input[type="text"],
+    .input-container textarea {
+        font-size: 1rem;
+        padding: 8px;
+        width: 98%;
+        min-width: unset;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    .boton {
+        width: auto;
+        min-width: 90px;
+        max-width: 100%;
+        font-size: 1rem;
+        padding: 8px 18px;
+        margin: 8px auto;
+        display: inline-block;
+    }
+    .input-container .boton {
+        margin-top: 8px;
+        margin-bottom: 0;
+    }
     /* Puedes ajustar los keyframes si lo deseas */
 }
 
@@ -314,13 +342,22 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     }
 }
 
+/* Ajuste extra para pantallas muy pequeñas */
 @media (max-width: 500px) {
-    /* .humareda {
-        display: none;
-    } */
-    .logo-eterials {
-        width: 70px;
-        max-width: 48vw;
+    .input-container {
+        width: 99%;
+        padding: 2px 0;
+    }
+    .input-container input[type="text"],
+    .input-container textarea {
+        font-size: 0.95rem;
+        padding: 6px;
+        width: 99%;
+    }
+    .boton {
+        font-size: 0.95rem;
+        padding: 7px 12px;
+        min-width: 70px;
     }
 }
 
