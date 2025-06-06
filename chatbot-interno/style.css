@@ -804,26 +804,15 @@ body {
         max-width: 100%;
         margin: 0;
     }
+
 }
 @media (max-width: 500px) {
     .boton,
-    .botones-flex .boton {
-        width: 150px; /* Un poco más pequeño para pantallas muy chicas */
+    .input-container .boton {
+        width: 150px;
         min-width: 120px;
         font-size: 0.95rem;
         padding: 6px 6px;
-    }
-}
-@media (max-width: 700px) {
-    .input-container .boton {
-        width: 170px;
-        min-width: 140px;
-        max-width: 100%;
-        margin: 8px auto;
-        display: block;
-        font-size: 1rem;
-        padding: 7px 10px;
-        box-sizing: border-box;
     }
 }
 
