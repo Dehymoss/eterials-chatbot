@@ -554,9 +554,9 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     .taza-esquina {
         left: 0 !important;
         bottom: 10px;
-        width: 70px !important;
-        max-width: 28vw !important;
-        display: flex;
+        width: 60px !important;
+        max-width: 22vw !important;
+        height: auto !important;
     }
     .humareda {
         left: 0 !important;
@@ -609,9 +609,10 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         display: block !important;
     }
     .taza-esquina {
-        left: -18px !important;
-        width: 60px !important;
-        max-width: 28vw !important;
+        left: -10px !important;
+        width: 48px !important;
+        max-width: 18vw !important;
+        height: auto !important;
     }
     .humareda {
         left: -18px !important;
