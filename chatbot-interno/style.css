@@ -459,7 +459,7 @@ body {
 /* --- Taza en esquina inferior --- */
 .taza-esquina {
     position: fixed;
-    left: 48px;
+    left: 40px; /* Alineada con la humareda */
     bottom: 32px;
     width: 180px;
     height: auto;
@@ -473,43 +473,17 @@ body {
     justify-content: center;
     overflow: visible;
 }
-.taza-esquina img {
-    width: 100%;
-    height: auto;
-    filter: grayscale(0.2) contrast(1.15) brightness(1.08) drop-shadow(0 4px 16px #232323cc);
-    border-radius: 18px;
-    display: block;
-}
 
 /* --- Efecto de humo y notas --- */
 .humareda {
     position: fixed;
-    left: 40px;
+    left: 40px; /* Igual que la taza */
     bottom: 60px;
     width: 120px;
     height: 260px;
     pointer-events: none;
     z-index: 20;
     overflow: visible;
-}
-
-/* Capas de humo más intensas y coloridas (opcional, puedes eliminar si no usas .humo-extra) */
-.humareda .humo-extra {
-    content: "";
-    position: absolute;
-    left: 55%;
-    bottom: 0;
-    width: 80px;
-    height: 100vh;
-    background: 
-        radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.10) 0%, transparent 80%),
-        radial-gradient(ellipse at 60% 80%, rgba(255,224,102,0.08) 0%, transparent 80%),
-        radial-gradient(ellipse at 40% 60%, rgba(160,216,255,0.08) 0%, transparent 80%);
-    opacity: 0.5;
-    filter: blur(36px);
-    z-index: 1;
-    pointer-events: none;
-    animation: humo-ondulante 18s ease-in-out infinite alternate-reverse;
 }
 
 /* Nubes de humo flotante */
