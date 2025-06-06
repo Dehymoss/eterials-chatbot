@@ -292,34 +292,42 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         margin-top: 8px;
     }
     .input-container {
-        width: 96%;
+        width: 99%;
         min-width: unset;
         max-width: 100%;
-        padding: 6px 0;
+        padding: 4px 0;
+        margin: 8px auto;
     }
     .input-container input[type="text"],
     .input-container textarea {
         font-size: 1rem;
-        padding: 8px;
-        width: 98%;
+        padding: 7px 8px;
+        width: 100%;
         min-width: unset;
         max-width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 6px;
+    }
+    .input-container .boton {
+        width: auto;
+        min-width: unset;
+        max-width: 100%;
+        font-size: 1rem;
+        padding: 7px 16px;
+        margin: 6px 0 0 0;
+        display: inline-block;
         box-sizing: border-box;
     }
     .boton {
         width: auto;
-        min-width: 90px;
+        min-width: unset;
         max-width: 100%;
         font-size: 1rem;
-        padding: 8px 18px;
+        padding: 7px 16px;
         margin: 8px auto;
         display: inline-block;
+        box-sizing: border-box;
     }
-    .input-container .boton {
-        margin-top: 8px;
-        margin-bottom: 0;
-    }
-    /* Puedes ajustar los keyframes si lo deseas */
 }
 
 @media (max-width: 600px) {
@@ -345,19 +353,27 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 /* Ajuste extra para pantallas muy pequeñas */
 @media (max-width: 500px) {
     .input-container {
-        width: 99%;
+        width: 100%;
         padding: 2px 0;
+        margin: 6px auto;
     }
     .input-container input[type="text"],
     .input-container textarea {
         font-size: 0.95rem;
-        padding: 6px;
-        width: 99%;
+        padding: 6px 6px;
+        width: 100%;
+        margin-bottom: 5px;
     }
+    .input-container .boton,
     .boton {
         font-size: 0.95rem;
-        padding: 7px 12px;
-        min-width: 70px;
+        padding: 6px 10px;
+        min-width: unset;
+        width: auto;
+        max-width: 100%;
+        margin: 5px 0 0 0;
+        display: inline-block;
+        box-sizing: border-box;
     }
 }
 
