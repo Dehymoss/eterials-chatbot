@@ -782,8 +782,9 @@ body {
 }
 
 @media (max-width: 700px) {
-    .boton {
-        width: 170px; /* Ajusta este valor al ancho de "Próximos eventos" */
+    .boton,
+    .input-container .boton {
+        width: 170px;
         min-width: 140px;
         max-width: 100%;
         display: block;
@@ -792,19 +793,23 @@ body {
         padding: 7px 10px;
         box-sizing: border-box;
     }
-    .botones-flex {
+    .input-container input[type="text"],
+    .input-container textarea {
+        width: 170px !important;
+        min-width: 140px !important;
+        max-width: 100% !important;
+        margin: 0 auto 8px auto !important;
+        font-size: 1rem !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+    .taza-esquina {
+        left: 2vw !important; /* Más pegada al borde izquierdo */
+        bottom: 10px;
+        width: 70px;
+        max-width: 28vw;
         display: flex;
-        gap: 8px;
-        width: 100%;
-        justify-content: center;
     }
-    .botones-flex .boton {
-        width: 170px; /* Igual que arriba */
-        min-width: 140px;
-        max-width: 100%;
-        margin: 0;
-    }
-
 }
 @media (max-width: 500px) {
     .boton,
@@ -813,6 +818,19 @@ body {
         min-width: 120px;
         font-size: 0.95rem;
         padding: 6px 6px;
+    }
+    .input-container input[type="text"],
+    .input-container textarea {
+        width: 150px !important;
+        min-width: 120px !important;
+        max-width: 100% !important;
+        margin: 0 auto 8px auto !important;
+        font-size: 0.95rem !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+    .taza-esquina {
+        left: 0 !important; /* Aún más pegada al borde en pantallas muy pequeñas */
     }
 }
 
