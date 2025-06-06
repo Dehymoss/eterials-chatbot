@@ -15,8 +15,10 @@
         <!-- Solo un botón en la caja del nombre -->
         <div id="nombre-container" class="input-container">
             <p>Escribe tu nombre para personalizar tu experiencia:</p>
-            <input type="text" id="nombre" placeholder="Escribe tu nombre" autocomplete="off">
-            <button class="boton boton-amarillo" onclick="guardarNombre()">Guardar Nombre</button>
+            <div class="input-row">
+                <input type="text" id="nombre" placeholder="Escribe tu nombre" autocomplete="off">
+                <button class="boton boton-amarillo" onclick="guardarNombre()">Guardar Nombre</button>
+            </div>
         </div>
         <div>
             <h3>Selecciona una opción:</h3>
@@ -39,9 +41,11 @@
             <button class="boton boton-amarillo" onclick="enviarCalificacion()">Enviar</button>
         </div>
         <div class="input-container">
-            <label for="comentarios">✏️ Déjanos tus comentarios:</label>
-            <textarea id="comentarios" placeholder="Escribe tus comentarios aquí..."></textarea>
-            <button class="boton boton-verde" onclick="alert('¡Gracias por tu comentario!')">Enviar</button>
+            <label for="comentario">Déjanos tus comentarios:</label>
+            <div class="input-row">
+                <textarea id="comentario" placeholder="Escribe tus comentarios aquí..."></textarea>
+                <button class="boton boton-verde">Enviar</button>
+            </div>
         </div>
         <div class="redes">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">📘</a>
