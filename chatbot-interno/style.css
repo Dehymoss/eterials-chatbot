@@ -154,6 +154,41 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     border-color: #ffe066;
 }
 
+/* 1. Accesibilidad: outline visible en botones */
+.boton:focus {
+    outline: 3px solid #ffe066;
+    outline-offset: 2px;
+}
+
+/* 2. Soporte para dark/light mode */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #f7f7f7;
+        color: #232323;
+    }
+    .boton {
+        color: #232323;
+        border-color: #232323;
+    }
+}
+
+/* 3. Variables CSS para colores */
+:root {
+    --color-fondo: #232323;
+    --color-amarillo: #ffe066;
+    --color-blanco-tiza: #fffbe7;
+    --color-verde: #b2f2bb;
+    --color-rosa: #ffadad;
+    --color-morado: #d0b3ff;
+    --color-azul: #a5d8ff;
+}
+
+/* Ejemplo de uso */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-blanco-tiza);
+}
+
 /* --- Separador estilo tiza --- */
 .separador {
     width: 80%;
@@ -331,52 +366,43 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         margin-top: 8px;
     }
     .input-container {
-        width: auto;
+        width: 96vw;
+        max-width: 420px;
         min-width: 0;
-        max-width: 100%;
-        padding: 2px 0;
-        margin: 8px auto;
+        margin: 10px auto;
+        padding: 0;
+        align-items: center;
     }
     .input-container input[type="text"],
     .input-container textarea {
-        width: auto;
-        min-width: 70px;
-        max-width: 90vw;
-        font-size: 0.97rem;
-        padding: 5px 8px;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        box-sizing: border-box;
+        text-align: left;
     }
     .input-container .boton {
         width: auto;
-        min-width: 60px;
-        font-size: 0.97rem;
-        padding: 5px 10px;
-        margin: 5px auto 0 auto;
-    }
-    /* Si tienes varios botones juntos, ponlos en un div y aplica esto: */
-    .botones-flex {
-        display: flex;
-        gap: 8px;
-        width: 100%;
-        justify-content: center;
-    }
-    .botones-flex .boton {
-        flex: 1 1 0;
-        width: auto;
-        min-width: 0;
+        min-width: 120px;
         max-width: 100%;
+        margin: 0 auto 8px auto;
+        display: block;
+        font-size: 1rem;
+        padding: 7px 16px;
     }
     .boton {
         width: auto;
-        min-width: unset;
+        min-width: 120px;
         max-width: 100%;
+        margin: 8px auto;
         font-size: 1rem;
         padding: 7px 16px;
-        margin: 8px auto;
-        display: inline-block;
+        display: block;
         box-sizing: border-box;
     }
 }
-
 @media (max-width: 600px) {
     body {
         padding: 8px;
@@ -400,26 +426,29 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
 /* Ajuste extra para pantallas muy pequeñas */
 @media (max-width: 500px) {
     .input-container {
-        width: 100%;
-        padding: 2px 0;
+        width: 98vw;
+        max-width: 98vw;
         margin: 6px auto;
+        padding: 0;
     }
     .input-container input[type="text"],
     .input-container textarea {
-        font-size: 0.95rem;
-        padding: 6px 6px;
         width: 100%;
-        margin-bottom: 5px;
+        min-width: 0;
+        max-width: 100%;
+        font-size: 0.97rem;
+        padding: 6px 8px;
+        margin-bottom: 8px;
     }
     .input-container .boton,
     .boton {
-        font-size: 0.95rem;
-        padding: 6px 10px;
-        min-width: unset;
         width: auto;
+        min-width: 100px;
         max-width: 100%;
-        margin: 5px 0 0 0;
-        display: inline-block;
+        font-size: 0.97rem;
+        padding: 6px 10px;
+        margin: 0 auto 8px auto;
+        display: block;
         box-sizing: border-box;
     }
 }
