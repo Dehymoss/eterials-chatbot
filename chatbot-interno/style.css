@@ -406,9 +406,9 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         radial-gradient(ellipse at 70% 30%, rgba(255,173,173,0.10) 0%, transparent 80%);
     opacity: 0.82;
     border-radius: 50%;
-    filter: blur(18px) brightness(1.25);
+    filter: blur(8px) brightness(1.05);
     z-index: 1;
-    box-shadow: 0 0 32px 8px #fffbe7, 0 0 48px 16px #ffe066;
+    box-shadow: 0 0 12px 2px #fffbe7, 0 0 18px 6px #ffe066;
     animation:
         flotar-nube 24s linear infinite,
         bamboleo-nube 12s ease-in-out infinite alternate;
@@ -419,9 +419,9 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     opacity: 0.92;
     font-size: 2.5rem;
     text-shadow:
-        0 0 16px #fffbe7,
-        0 0 24px #ffe066,
-        0 0 32px #fffbe7;
+        0 0 8px #fffbe7,
+        0 0 12px #ffe066,
+        0 0 16px #fffbe7;
     animation:
         flotar-nota 18s linear infinite,
         bamboleo-nota 8s ease-in-out infinite alternate,
