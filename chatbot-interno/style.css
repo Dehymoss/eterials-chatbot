@@ -24,7 +24,7 @@ body > * {
     z-index: 1;
 }
 
-/* --- Título principal con efecto neón sutil y manuscrita --- */
+/* --- Título principal con efecto neón tiza --- */
 h1 {
     font-family: 'Caveat', cursive;
     font-size: 58px;
@@ -32,9 +32,10 @@ h1 {
     letter-spacing: 2px;
     margin-bottom: 10px;
     text-shadow:
-        0 0 2px #ffe066,
-        0 0 6px #ffe066,
-        0 0 1px #fff,
+        0 0 8px #ffe066,
+        0 0 16px #fffbe7,
+        0 0 24px #ffe066,
+        0 0 2px #fff,
         1px 1px 0 #fffbe7;
     filter: blur(0.1px);
 }
@@ -44,6 +45,8 @@ h2, h3, .tiza-amarilla {
     color: #ffe066;
     font-family: 'Caveat', cursive;
     text-shadow:
+        0 0 6px #ffe066,
+        0 0 12px #fffbe7,
         0 1px 0 #fff,
         0 0 3px #fff;
     filter: blur(0.1px);
@@ -55,6 +58,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     color: #fffbe7;
     font-family: 'Patrick Hand', cursive;
     text-shadow:
+        0 0 4px #fffbe7,
         0 1px 0 #fff,
         0 0 3px #fff;
     filter: blur(0.1px);
@@ -86,116 +90,71 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     background-blend-mode: lighten;
 }
 
-/* Menú (amarillo tiza) */
+/* Colores de botones */
 .boton-azul {
-    background:
-        url('assets/chalk-texture.png') repeat,
-        #ffe066;
+    background: url('assets/chalk-texture.png') repeat, #ffe066;
     background-blend-mode: lighten;
     color: #232323;
     border-color: #ffe066;
+    box-shadow: 0 0 12px #ffe066, 0 0 24px #fffbe7;
 }
-
-/* Cancionero (verde tiza) */
 .boton-verde {
-    background:
-        url('assets/chalk-texture.png') repeat,
-        #b2f2bb;
+    background: url('assets/chalk-texture.png') repeat, #b2f2bb;
     background-blend-mode: lighten;
     color: #232323;
     border-color: #b2f2bb;
+    box-shadow: 0 0 12px #b2f2bb, 0 0 24px #fffbe7;
 }
-
-/* Llamar al mesero (naranja tiza) */
 .boton-rojo {
-    background:
-        url('assets/chalk-texture.png') repeat,
-        #ffd6a5;
+    background: url('assets/chalk-texture.png') repeat, #ffd6a5;
     background-blend-mode: lighten;
     color: #232323;
     border-color: #ffd6a5;
+    box-shadow: 0 0 12px #ffd6a5, 0 0 24px #fffbe7;
 }
-
-/* Galería (rosa tiza) */
 .boton-amarillo {
-    background:
-        url('assets/chalk-texture.png') repeat,
-        #ffadad;
+    background: url('assets/chalk-texture.png') repeat, #ffadad;
     background-blend-mode: lighten;
     color: #232323;
     border-color: #ffadad;
+    box-shadow: 0 0 12px #ffadad, 0 0 24px #fffbe7;
 }
-
-/* Próximos eventos (morado tiza) */
 .boton-morado {
-    background:
-        url('assets/chalk-texture.png') repeat,
-        #d0b3ff;
+    background: url('assets/chalk-texture.png') repeat, #d0b3ff;
     background-blend-mode: lighten;
     color: #232323;
     border-color: #d0b3ff;
+    box-shadow: 0 0 12px #d0b3ff, 0 0 24px #fffbe7;
 }
-
-/* Karaoke (azul tiza) */
 .boton-karaoke {
-    background:
-        url('assets/chalk-texture.png') repeat,
-        #a5d8ff;
+    background: url('assets/chalk-texture.png') repeat, #a5d8ff;
     background-blend-mode: lighten;
     color: #232323;
     border-color: #a5d8ff;
+    box-shadow: 0 0 12px #a5d8ff, 0 0 24px #fffbe7;
 }
 
 .boton:hover {
     background: #fffbe7;
     color: #232323;
-    box-shadow: 0 0 24px #ffe066, 0 0 12px #fff;
+    box-shadow: 0 0 32px #ffe066, 0 0 24px #fff;
     opacity: 1;
     border-color: #ffe066;
 }
-
-/* 1. Accesibilidad: outline visible en botones */
 .boton:focus {
     outline: 3px solid #ffe066;
     outline-offset: 2px;
 }
 
-/* 2. Soporte para dark/light mode */
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: #f7f7f7;
-        color: #232323;
-    }
-    .boton {
-        color: #232323;
-        border-color: #232323;
-    }
-}
-
-/* 3. Variables CSS para colores */
-:root {
-    --color-fondo: #232323;
-    --color-amarillo: #ffe066;
-    --color-blanco-tiza: #fffbe7;
-    --color-verde: #b2f2bb;
-    --color-rosa: #ffadad;
-    --color-morado: #d0b3ff;
-    --color-azul: #a5d8ff;
-}
-
-/* Ejemplo de uso */
-body {
-    background-color: var(--color-fondo);
-    color: var(--color-blanco-tiza);
-}
-
-/* --- Separador estilo tiza --- */
-.separador {
-    width: 80%;
-    margin: 20px auto;
-    border-top: 3px dashed #fffbe7;
-    opacity: 0.5;
-    filter: blur(0.1px);
+/* Botón ajustado al texto */
+.boton-ajustado {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 8px 18px !important;
+    display: inline-block !important;
+    margin: 8px auto !important;
+    font-size: 1.1rem !important;
 }
 
 /* --- Inputs y textarea estilo tiza --- */
@@ -238,7 +197,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Nuevas reglas para filas de input */
+/* Filas de input */
 .input-row {
     display: flex;
     flex-direction: row;
@@ -286,6 +245,7 @@ body {
     border-radius: 50%;
     background: rgba(0,0,0,0.2);
     transition: box-shadow 0.2s, color 0.2s;
+    text-shadow: 0 0 8px #fffbe7, 0 0 16px #ffe066;
 }
 .redes a:hover {
     color: #ffe066;
@@ -308,8 +268,8 @@ body {
 .estrella {
     color: #fffbe7;
     text-shadow:
+        0 0 8px #fffbe7,
         0 1px 0 #fff,
-        0 2px 0 #fff,
         0 0 3px #fff;
     filter: blur(0.1px);
     transition: color 0.2s, text-shadow 0.2s, transform 0.15s;
@@ -318,11 +278,238 @@ body {
 .estrella.activa {
     color: #ffe066;
     text-shadow:
-        0 0 6px #ffe066,
-        0 0 10px #fff,
+        0 0 16px #ffe066,
+        0 0 24px #fffbe7,
         0 1px 0 #fff;
     transform: scale(1.15) rotate(-8deg);
 }
+
+/* --- Separador estilo tiza --- */
+.separador {
+    width: 80%;
+    margin: 20px auto;
+    border-top: 3px dashed #fffbe7;
+    opacity: 0.5;
+    filter: blur(0.1px);
+}
+
+/* --- Contenedor central --- */
+.contenedor-central {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contenedor-central .boton,
+.contenedor-central .input-container,
+.contenedor-central .separador {
+    width: 100%;
+    min-width: 220px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Saludo destacado --- */
+.saludo-destacado {
+    color: #ffe066;
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    text-shadow: 0 0 12px #ffe066, 0 0 8px #fffbe7, 0 0 2px #fff;
+    display: block;
+    margin-bottom: 6px;
+}
+.saludo-mensaje {
+    color: #a5d8ff;
+    font-size: 1.25rem;
+    text-shadow: 0 0 12px #a5d8ff, 0 1px 4px #232323, 0 0 2px #fff;
+    font-family: 'Caveat', cursive;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+
+/* --- Logo en la parte superior --- */
+.logo-eterials {
+    width: 130px;
+    max-width: 30vw;
+    min-width: 70px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    filter: drop-shadow(0 2px 8px #232323cc);
+    border-radius: 50%;
+    background: url('assets/chalk-texture.png') repeat;
+    background-blend-mode: lighten;
+    padding: 8px;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: girar-vinilo 2.5s linear infinite;
+}
+@keyframes girar-vinilo {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+/* --- Taza en esquina inferior --- */
+.taza-esquina {
+    position: fixed;
+    left: 40px;
+    bottom: 32px;
+    width: 180px;
+    height: auto;
+    max-width: 22vw;
+    z-index: 10;
+    opacity: 0.93;
+    pointer-events: none;
+    transition: width 0.3s, left 0.3s;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: visible;
+}
+.taza-esquina img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Efecto de humo y notas con neón tiza y más movimiento --- */
+.humareda {
+    position: fixed;
+    left: 40px;
+    bottom: 60px;
+    width: 180px;
+    height: 260px;
+    pointer-events: none;
+    z-index: 20;
+    overflow: visible;
+}
+.humo-nube, .nota {
+    --bamboleo: rotate(0deg) scale(1) translateX(0px);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+.humo-nube {
+    width: 54px;
+    height: 38px;
+    background: 
+        radial-gradient(ellipse at center, rgba(255,255,255,0.32) 60%, rgba(255,224,102,0.22) 80%, transparent 100%),
+        radial-gradient(ellipse at 60% 40%, rgba(160,216,255,0.18) 0%, transparent 80%),
+        radial-gradient(ellipse at 40% 60%, rgba(208,179,255,0.15) 0%, transparent 80%),
+        radial-gradient(ellipse at 70% 30%, rgba(255,173,173,0.10) 0%, transparent 80%);
+    opacity: 0.82;
+    border-radius: 50%;
+    filter: blur(18px) brightness(1.25);
+    z-index: 1;
+    box-shadow: 0 0 32px 8px #fffbe7, 0 0 48px 16px #ffe066;
+    animation:
+        flotar-nube 24s linear infinite,
+        bamboleo-nube 12s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i, 0) * 2s), calc(var(--i, 0) * 1.5s);
+}
+.nota {
+    z-index: 2;
+    opacity: 0.92;
+    font-size: 2.5rem;
+    text-shadow:
+        0 0 16px #fffbe7,
+        0 0 24px #ffe066,
+        0 0 32px #fffbe7;
+    animation:
+        flotar-nota 18s linear infinite,
+        bamboleo-nota 8s ease-in-out infinite alternate,
+        parpadeo-nota 2.5s infinite alternate;
+    animation-delay: calc(var(--i, 0) * 1.2s), calc(var(--i, 0) * 0.8s), calc(var(--i, 0) * 0.5s);
+    will-change: filter, opacity, transform;
+}
+
+/* Variables para animación única de cada nube y nota */
+.humo-nube-0, .nota-0 { --i: 0; --x: -18px; }
+.humo-nube-1, .nota-1 { --i: 1; --x: 12px; }
+.humo-nube-2, .nota-2 { --i: 2; --x: -8px; }
+.humo-nube-3, .nota-3 { --i: 3; --x: 18px; }
+.humo-nube-4, .nota-4 { --i: 4; --x: 8px; }
+.humo-nube-5, .nota-5 { --i: 5; --x: 16px; }
+.humo-nube-6, .nota-6 { --i: 6; --x: -14px; }
+.humo-nube-7, .nota-7 { --i: 7; --x: 8px; }
+.humo-nube-8, .nota-8 { --i: 8; --x: 28px; }
+.humo-nube-9, .nota-9 { --i: 9; --x: -22px; }
+.humo-nube-10, .nota-10 { --i: 10; --x: 10px; }
+.humo-nube-11, .nota-11 { --i: 11; --x: -20px; }
+.humo-nube-12, .nota-12 { --i: 12; --x: 18px; }
+.humo-nube-13, .nota-13 { --i: 13; --x: -12px; }
+.humo-nube-14, .nota-14 { --i: 14; --x: 24px; }
+.humo-nube-15, .nota-15 { --i: 15; --x: 10px; }
+.humo-nube-16, .nota-16 { --i: 16; --x: -16px; }
+.humo-nube-17, .nota-17 { --i: 17; --x: 20px; }
+.humo-nube-18, .nota-18 { --i: 18; --x: -20px; }
+.humo-nube-19, .nota-19 { --i: 19; --x: 14px; }
+
+/* Animaciones más dinámicas y con parpadeo */
+@keyframes flotar-nube {
+    0% { transform: var(--bamboleo) translateX(var(--x, 0)) translateY(0) scale(1); opacity: 0.82;}
+    10% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 0.7)) translateY(-10vh) scale(1.08);}
+    25% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.2)) translateY(-30vh) scale(1.13);}
+    40% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.5)) translateY(-50vh) scale(1.18);}
+    60% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.7)) translateY(-80vh) scale(1.22);}
+    80% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2)) translateY(-110vh) scale(1.28);}
+    100% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2.2)) translateY(-130vh) scale(1.35); opacity: 0;}
+}
+@keyframes flotar-nota {
+    0% { transform: var(--bamboleo) translateX(var(--x, 0)) translateY(0) scale(1);}
+    10% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 0.8)) translateY(-12vh) scale(1.12);}
+    25% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.3)) translateY(-35vh) scale(1.18);}
+    40% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.7)) translateY(-60vh) scale(1.23);}
+    60% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2.1)) translateY(-100vh) scale(1.27);}
+    80% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2.4)) translateY(-130vh) scale(1.33);}
+    100% { transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2.7)) translateY(-160vh) scale(1.4);}
+}
+@keyframes bamboleo-nube {
+    0%   { --bamboleo: rotate(-10deg) scale(1) translateX(0px);}
+    10%  { --bamboleo: rotate(8deg) scale(1.08) translateX(24px);}
+    20%  { --bamboleo: rotate(-12deg) scale(1.12) translateX(-32px);}
+    30%  { --bamboleo: rotate(6deg) scale(1.05) translateX(18px);}
+    40%  { --bamboleo: rotate(-8deg) scale(1.1) translateX(-28px);}
+    50%  { --bamboleo: rotate(12deg) scale(1.13) translateX(32px);}
+    60%  { --bamboleo: rotate(-6deg) scale(1.07) translateX(-20px);}
+    70%  { --bamboleo: rotate(10deg) scale(1.09) translateX(26px);}
+    80%  { --bamboleo: rotate(-10deg) scale(1.11) translateX(-24px);}
+    90%  { --bamboleo: rotate(4deg) scale(1.04) translateX(12px);}
+    100% { --bamboleo: rotate(-10deg) scale(1) translateX(0px);}
+}
+@keyframes bamboleo-nota {
+    0%   { --bamboleo: rotate(-18deg) scale(1) translateX(0px);}
+    10%  { --bamboleo: rotate(22deg) scale(1.15) translateX(32px);}
+    20%  { --bamboleo: rotate(-24deg) scale(1.22) translateX(-40px);}
+    30%  { --bamboleo: rotate(16deg) scale(1.09) translateX(26px);}
+    40%  { --bamboleo: rotate(-20deg) scale(1.17) translateX(-36px);}
+    50%  { --bamboleo: rotate(26deg) scale(1.23) translateX(38px);}
+    60%  { --bamboleo: rotate(-16deg) scale(1.11) translateX(-28px);}
+    70%  { --bamboleo: rotate(18deg) scale(1.14) translateX(34px);}
+    80%  { --bamboleo: rotate(-22deg) scale(1.19) translateX(-32px);}
+    90%  { --bamboleo: rotate(10deg) scale(1.07) translateX(18px);}
+    100% { --bamboleo: rotate(-18deg) scale(1) translateX(0px);}
+}
+@keyframes parpadeo-nota {
+    0% { filter: brightness(1.2) blur(0.5px); opacity: 0.92;}
+    30% { filter: brightness(1.5) blur(1.5px); opacity: 1;}
+    60% { filter: brightness(1.1) blur(0.5px); opacity: 0.85;}
+    100% { filter: brightness(1.3) blur(1px); opacity: 0.95;}
+}
+
+/* Colores de tiza para cada nota */
+.nota-amarilla { color: #ffe066; text-shadow: 0 0 16px #ffe066, 0 0 32px #fffbe7; }
+.nota-rosa    { color: #ffadad; text-shadow: 0 0 16px #ffadad, 0 0 32px #fffbe7; }
+.nota-verde   { color: #b2f2bb; text-shadow: 0 0 16px #b2f2bb, 0 0 32px #fffbe7; }
+.nota-morada  { color: #d0b3ff; text-shadow: 0 0 16px #d0b3ff, 0 0 32px #fffbe7; }
+.nota-azul    { color: #a5d8ff; text-shadow: 0 0 16px #a5d8ff, 0 0 32px #fffbe7; }
 
 /* --- Scrollbar personalizada estilo tiza --- */
 ::-webkit-scrollbar {
@@ -335,7 +522,7 @@ body {
     border: 2px dashed #fffbe7;
 }
 
-/* --- Media query para móviles --- */
+/* --- Media queries para móviles --- */
 @media (max-width: 700px) {
     .boton,
     .input-container .boton {
@@ -347,6 +534,12 @@ body {
         font-size: 1rem;
         padding: 7px 10px;
         box-sizing: border-box;
+    }
+    .boton-ajustado {
+        width: auto !important;
+        min-width: 60px !important;
+        font-size: 1rem !important;
+        padding: 7px 14px !important;
     }
     .input-container input[type="text"],
     .input-container textarea {
@@ -361,15 +554,15 @@ body {
     .taza-esquina {
         left: 0 !important;
         bottom: 10px;
-        width: 70px;
-        max-width: 28vw;
+        width: 70px !important;
+        max-width: 28vw !important;
         display: flex;
     }
     .humareda {
         left: 0 !important;
-        bottom: 55px;
-        width: 70px;
-        height: 120px;
+        bottom: 55px !important;
+        width: 70px !important;
+        height: 120px !important;
     }
 }
 @media (max-width: 600px) {
@@ -391,8 +584,6 @@ body {
         font-size: 1.5rem;
     }
 }
-
-/* Ajuste extra para pantallas muy pequeñas */
 @media (max-width: 500px) {
     .boton,
     .input-container .boton {
@@ -400,6 +591,12 @@ body {
         min-width: 120px;
         font-size: 0.95rem;
         padding: 6px 6px;
+    }
+    .boton-ajustado {
+        width: auto !important;
+        min-width: 50px !important;
+        font-size: 0.95rem !important;
+        padding: 6px 10px !important;
     }
     .input-container input[type="text"],
     .input-container textarea {
@@ -413,300 +610,13 @@ body {
     }
     .taza-esquina {
         left: -18px !important;
+        width: 60px !important;
+        max-width: 28vw !important;
     }
     .humareda {
         left: -18px !important;
+        width: 60px !important;
+        height: 90px !important;
     }
-}
-
-/* --- Contenedor central para alinear y unificar anchos --- */
-.contenedor-central {
-    max-width: 520px;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.contenedor-central .boton,
-.contenedor-central .input-container,
-.contenedor-central .separador {
-    width: 100%;
-    min-width: 220px;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.saludo-destacado {
-    color: #ffe066;
-    font-family: 'Caveat', cursive;
-    font-size: 2.2rem;
-    text-shadow: 0 0 8px #232323, 0 0 2px #fff;
-    display: block;
-    margin-bottom: 6px;
-}
-.saludo-mensaje {
-    color: #a5d8ff;
-    font-size: 1.25rem;
-    text-shadow: 0 1px 4px #232323, 0 0 2px #fff;
-    font-family: 'Caveat', cursive;
-    display: block;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    line-height: 1.5;
-}
-
-/* --- Taza en esquina inferior --- */
-.taza-esquina {
-    position: fixed;
-    left: 40px; /* Alineada con la humareda */
-    bottom: 32px;
-    width: 180px;
-    height: auto;
-    max-width: 22vw;
-    z-index: 10;
-    opacity: 0.93;
-    pointer-events: none;
-    transition: width 0.3s, left 0.3s;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    overflow: visible;
-}
-
-/* --- Efecto de humo y notas --- */
-.humareda {
-    position: fixed;
-    left: 40px; /* Igual que la taza */
-    bottom: 60px;
-    width: 120px;
-    height: 260px;
-    pointer-events: none;
-    z-index: 20;
-    overflow: visible;
-}
-
-/* Nubes de humo flotante */
-.humo-nube {
-    --bamboleo: rotate(0deg) scale(1) translateX(0px);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 54px;
-    height: 38px;
-    background: 
-        radial-gradient(ellipse at center, rgba(255,255,255,0.32) 60%, rgba(255,224,102,0.22) 80%, transparent 100%),
-        radial-gradient(ellipse at 60% 40%, rgba(160,216,255,0.18) 0%, transparent 80%),
-        radial-gradient(ellipse at 40% 60%, rgba(208,179,255,0.15) 0%, transparent 80%),
-        radial-gradient(ellipse at 70% 30%, rgba(255,173,173,0.10) 0%, transparent 80%);
-    opacity: 0.82;
-    border-radius: 50%;
-    filter: blur(18px) brightness(1.25);
-    z-index: 1;
-    pointer-events: none;
-    animation:
-        flotar-nube 36s linear infinite,
-        bamboleo-nube 28s ease-in-out infinite alternate;
-    animation-delay: calc(var(--i, 0) * 4s), calc(var(--i, 0) * 4s);
-    will-change: transform, opacity;
-}
-.nota {
-    --bamboleo: rotate(0deg) scale(1) translateX(0px);
-    z-index: 2;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    opacity: 0.85;
-    font-size: 2.2rem;
-    pointer-events: none;
-    animation:
-        flotar-nota 48s linear infinite,
-        bamboleo-nota 36s ease-in-out infinite alternate;
-    animation-delay: calc(var(--i, 0) * 4s), calc(var(--i, 0) * 4s);
-    will-change: transform, opacity;
-}
-
-/* Keyframes de ascenso: combinan el bamboleo y el ascenso */
-@keyframes flotar-nube {
-    0% {
-        transform: var(--bamboleo) translateX(var(--x, 0)) translateY(0) scale(1);
-        opacity: 0.82;
-    }
-    20% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 0.7)) translateY(-20vh) scale(1.08);
-        opacity: 0.78;
-    }
-    40% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.2)) translateY(-40vh) scale(1.13);
-        opacity: 0.74;
-    }
-    60% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.5)) translateY(-60vh) scale(1.18);
-        opacity: 0.7;
-    }
-    80% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.7)) translateY(-80vh) scale(1.22);
-        opacity: 0.65;
-    }
-    100% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2)) translateY(-100vh) scale(1.28);
-        opacity: 0;
-    }
-}
-@keyframes flotar-nota {
-    0% {
-        transform: var(--bamboleo) translateX(var(--x, 0)) translateY(0) scale(1);
-        opacity: 0.85;
-    }
-    20% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 0.7)) translateY(-20vh) scale(1.12);
-        opacity: 0.82;
-    }
-    40% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.2)) translateY(-40vh) scale(1.18);
-        opacity: 0.78;
-    }
-    60% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.5)) translateY(-60vh) scale(1.23);
-        opacity: 0.74;
-    }
-    80% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.7)) translateY(-80vh) scale(1.27);
-        opacity: 0.7;
-    }
-    100% {
-        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2)) translateY(-100vh) scale(1.33);
-        opacity: 0;
-    }
-}
-
-/* Keyframes de bamboleo: solo modifican la variable --bamboleo */
-@keyframes bamboleo-nube {
-    0%   { --bamboleo: rotate(-10deg) scale(1) translateX(0px);}
-    10%  { --bamboleo: rotate(8deg) scale(1.08) translateX(24px);}
-    20%  { --bamboleo: rotate(-12deg) scale(1.12) translateX(-32px);}
-    30%  { --bamboleo: rotate(6deg) scale(1.05) translateX(18px);}
-    40%  { --bamboleo: rotate(-8deg) scale(1.1) translateX(-28px);}
-    50%  { --bamboleo: rotate(12deg) scale(1.13) translateX(32px);}
-    60%  { --bamboleo: rotate(-6deg) scale(1.07) translateX(-20px);}
-    70%  { --bamboleo: rotate(10deg) scale(1.09) translateX(26px);}
-    80%  { --bamboleo: rotate(-10deg) scale(1.11) translateX(-24px);}
-    90%  { --bamboleo: rotate(4deg) scale(1.04) translateX(12px);}
-    100% { --bamboleo: rotate(-10deg) scale(1) translateX(0px);}
-}
-@keyframes bamboleo-nota {
-    0%   { --bamboleo: rotate(-14deg) scale(1) translateX(0px);}
-    10%  { --bamboleo: rotate(18deg) scale(1.10) translateX(28px);}
-    20%  { --bamboleo: rotate(-22deg) scale(1.15) translateX(-36px);}
-    30%  { --bamboleo: rotate(12deg) scale(1.07) translateX(22px);}
-    40%  { --bamboleo: rotate(-18deg) scale(1.13) translateX(-32px);}
-    50%  { --bamboleo: rotate(22deg) scale(1.16) translateX(36px);}
-    60%  { --bamboleo: rotate(-14deg) scale(1.09) translateX(-24px);}
-    70%  { --bamboleo: rotate(16deg) scale(1.12) translateX(30px);}
-    80%  { --bamboleo: rotate(-20deg) scale(1.14) translateX(-28px);}
-    90%  { --bamboleo: rotate(8deg) scale(1.05) translateX(16px);}
-    100% { --bamboleo: rotate(-14deg) scale(1) translateX(0px);}
-}
-
-/* Colores y brillos para notas musicales */
-.nota-amarilla {
-    color: #ffe066;
-    text-shadow: 0 0 8px #ffe066, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #ffe066);
-}
-.nota-rosa {
-    color: #ffadad;
-    text-shadow: 0 0 8px #ffadad, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #ffadad);
-}
-.nota-verde {
-    color: #b2f2bb;
-    text-shadow: 0 0 8px #b2f2bb, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #b2f2bb);
-}
-.nota-morada {
-    color: #d0b3ff;
-    text-shadow: 0 0 8px #d0b3ff, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #d0b3ff);
-}
-.nota-azul {
-    color: #a5d8ff;
-    text-shadow: 0 0 8px #a5d8ff, 0 0 16px #fffbe7;
-    filter: drop-shadow(0 0 8px #a5d8ff);
-}
-
-/* Nubes y notas: sincroniza delays y posiciones */
-/* Para menos notas musicales, deja solo .nota-0 a .nota-4 en tu HTML */
-.humo-nube-0, .nota-0 { --i: 0; --x: -18px; }
-.humo-nube-1, .nota-1 { --i: 1; --x: 12px; }
-.humo-nube-2, .nota-2 { --i: 2; --x: -8px; }
-.humo-nube-3, .nota-3 { --i: 3; --x: 18px; }
-.humo-nube-4, .nota-4 { --i: 4; --x: 8px; }
-.humo-nube-5 { --i: 5; --x: 16px; }
-.humo-nube-6 { --i: 6; --x: -14px; }
-.humo-nube-7 { --i: 7; --x: 8px; }
-.humo-nube-8 { --i: 8; --x: 28px; }
-.humo-nube-9 { --i: 9; --x: -22px; }
-.humo-nube-10 { --i: 10; --x: 10px; }
-.humo-nube-11 { --i: 11; --x: -20px; }
-.humo-nube-12 { --i: 12; --x: 18px; }
-.humo-nube-13 { --i: 13; --x: -12px; }
-.humo-nube-14 { --i: 14; --x: 24px; }
-.humo-nube-15 { --i: 15; --x: 10px; }
-.humo-nube-16 { --i: 16; --x: -16px; }
-.humo-nube-17 { --i: 17; --x: 20px; }
-.humo-nube-18 { --i: 18; --x: -20px; }
-.humo-nube-19 { --i: 19; --x: 14px; }
-
-/* Animación extra para el humo de fondo (opcional) */
-@keyframes humo-ondulante {
-    0% { transform: translateX(-50%) scaleX(1) scaleY(1);}
-    25% { transform: translateX(-48%) scaleX(1.08) scaleY(1.04);}
-    50% { transform: translateX(-52%) scaleX(0.95) scaleY(1.1);}
-    75% { transform: translateX(-49%) scaleX(1.12) scaleY(1.03);}
-    100% { transform: translateX(-50%) scaleX(1) scaleY(1);}
-}
-
-/* --- Logo en la parte superior --- */
-.logo-eterials {
-    width: 130px;
-    max-width: 30vw;
-    min-width: 70px;
-    margin-bottom: 12px;
-    margin-top: 12px;
-    filter: drop-shadow(0 2px 8px #232323cc);
-    border-radius: 50%;
-    background: url('assets/chalk-texture.png') repeat;
-    background-blend-mode: lighten;
-    padding: 8px;
-    box-sizing: border-box;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    animation: girar-vinilo 2.5s linear infinite;
-}
-
-/* --- Modo móvil: sobrescribe solo lo necesario --- */
-@media (max-width: 700px) {
-    .logo-eterials {
-        width: 80px;
-        max-width: 36vw;
-        min-width: 48px;
-        margin-bottom: 8px;
-        margin-top: 8px;
-    }
-}
-@media (max-width: 500px) {
-    .logo-eterials {
-        width: 60px;
-        max-width: 40vw;
-        min-width: 40px;
-    }
-}
-
-/* Animación del logo */
-@keyframes girar-vinilo {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
 }
 
