@@ -359,11 +359,17 @@ body {
         display: block !important;
     }
     .taza-esquina {
-        left: 0 !important; /* Totalmente a la izquierda */
+        left: 0 !important;
         bottom: 10px;
         width: 70px;
         max-width: 28vw;
         display: flex;
+    }
+    .humareda {
+        left: 0 !important;
+        bottom: 55px;
+        width: 70px;
+        height: 120px;
     }
 }
 @media (max-width: 600px) {
@@ -406,7 +412,10 @@ body {
         display: block !important;
     }
     .taza-esquina {
-        left: -18px !important; /* Más fuera de la columna de botones */
+        left: -18px !important;
+    }
+    .humareda {
+        left: -18px !important;
     }
 }
 
@@ -450,7 +459,7 @@ body {
 /* --- Taza en esquina inferior --- */
 .taza-esquina {
     position: fixed;
-    left: 48px; /* Más separada del borde y de los botones en escritorio */
+    left: 48px;
     bottom: 32px;
     width: 180px;
     height: auto;
@@ -475,10 +484,10 @@ body {
 /* --- Efecto de humo y notas --- */
 .humareda {
     position: fixed;
-    left: 40px; /* más cerca de la taza */
+    left: 40px;
     bottom: 60px;
     width: 120px;
-    height: 260px; /* solo sobre la taza */
+    height: 260px;
     pointer-events: none;
     z-index: 20;
     overflow: visible;
@@ -505,6 +514,7 @@ body {
 
 /* Nubes de humo flotante */
 .humo-nube {
+    --bamboleo: rotate(0deg) scale(1) translateX(0px);
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -518,91 +528,110 @@ body {
     opacity: 0.82;
     border-radius: 50%;
     filter: blur(18px) brightness(1.25);
-    transform: translateX(var(--x, 0));
-    animation: flotar-nube 24s linear infinite, bamboleo-nube 18s ease-in-out infinite alternate;
     z-index: 1;
     pointer-events: none;
-    animation-delay: calc(var(--i, 0) * 2s), calc(var(--i, 0) * 2s);
+    animation:
+        flotar-nube 36s linear infinite,
+        bamboleo-nube 28s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i, 0) * 4s), calc(var(--i, 0) * 4s);
     will-change: transform, opacity;
 }
-
-/* Tamaño y opacidad variable para cada nube */
-.humo-nube-0, .humo-nube-5, .humo-nube-10 { width: 60px; height: 44px; opacity: 0.88; }
-.humo-nube-2, .humo-nube-7, .humo-nube-12 { width: 48px; height: 32px; opacity: 0.7; }
-.humo-nube-4, .humo-nube-9, .humo-nube-14 { width: 56px; height: 40px; opacity: 0.8; }
-
-/* Notas musicales */
 .nota {
+    --bamboleo: rotate(0deg) scale(1) translateX(0px);
     z-index: 2;
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(var(--x, 0));
-    animation:
-        flotar-nota 24s linear infinite,
-        bamboleo-nota 18s ease-in-out infinite alternate;
     opacity: 0.85;
     font-size: 2.2rem;
     pointer-events: none;
-    animation-delay:
-        calc(var(--i, 0) * 2s),
-        calc(var(--i, 0) * 2s);
+    animation:
+        flotar-nota 48s linear infinite,
+        bamboleo-nota 36s ease-in-out infinite alternate;
+    animation-delay: calc(var(--i, 0) * 4s), calc(var(--i, 0) * 4s);
     will-change: transform, opacity;
 }
 
-/* Nuevo: giro con un span hijo */
-.nota > span {
-    display: inline-block;
-    animation: girar-nota 12s linear infinite;
-}
-
-@keyframes girar-nota {
-    0% { transform: rotate(-8deg);}
-    50% { transform: rotate(8deg);}
-    100% { transform: rotate(-8deg);}
-}
-
+/* Keyframes de ascenso: combinan el bamboleo y el ascenso */
 @keyframes flotar-nube {
     0% {
-        transform: translateX(var(--x, 0)) translateY(0) scale(1);
+        transform: var(--bamboleo) translateX(var(--x, 0)) translateY(0) scale(1);
         opacity: 0.82;
     }
+    20% {
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 0.7)) translateY(-20vh) scale(1.08);
+        opacity: 0.78;
+    }
+    40% {
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.2)) translateY(-40vh) scale(1.13);
+        opacity: 0.74;
+    }
+    60% {
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.5)) translateY(-60vh) scale(1.18);
+        opacity: 0.7;
+    }
     80% {
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.7)) translateY(-80vh) scale(1.22);
         opacity: 0.65;
     }
     100% {
-        transform: translateX(calc(var(--x, 0) * 1.5)) translateY(-90vh) scale(1.2);
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2)) translateY(-100vh) scale(1.28);
         opacity: 0;
     }
 }
 @keyframes flotar-nota {
     0% {
-        transform: translateX(var(--x, 0)) translateY(0);
+        transform: var(--bamboleo) translateX(var(--x, 0)) translateY(0) scale(1);
         opacity: 0.85;
+    }
+    20% {
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 0.7)) translateY(-20vh) scale(1.12);
+        opacity: 0.82;
+    }
+    40% {
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.2)) translateY(-40vh) scale(1.18);
+        opacity: 0.78;
+    }
+    60% {
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.5)) translateY(-60vh) scale(1.23);
+        opacity: 0.74;
     }
     80% {
-        opacity: 0.85;
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 1.7)) translateY(-80vh) scale(1.27);
+        opacity: 0.7;
     }
     100% {
-        transform: translateX(calc(var(--x, 0) * 1.5)) translateY(-90vh);
+        transform: var(--bamboleo) translateX(calc(var(--x, 0) * 2)) translateY(-100vh) scale(1.33);
         opacity: 0;
     }
 }
+
+/* Keyframes de bamboleo: solo modifican la variable --bamboleo */
 @keyframes bamboleo-nube {
-    0% { margin-left: 0px; }
-    20% { margin-left: 10px; }
-    40% { margin-left: -12px; }
-    60% { margin-left: 8px; }
-    80% { margin-left: -10px; }
-    100% { margin-left: 0px; }
+    0%   { --bamboleo: rotate(-10deg) scale(1) translateX(0px);}
+    10%  { --bamboleo: rotate(8deg) scale(1.08) translateX(24px);}
+    20%  { --bamboleo: rotate(-12deg) scale(1.12) translateX(-32px);}
+    30%  { --bamboleo: rotate(6deg) scale(1.05) translateX(18px);}
+    40%  { --bamboleo: rotate(-8deg) scale(1.1) translateX(-28px);}
+    50%  { --bamboleo: rotate(12deg) scale(1.13) translateX(32px);}
+    60%  { --bamboleo: rotate(-6deg) scale(1.07) translateX(-20px);}
+    70%  { --bamboleo: rotate(10deg) scale(1.09) translateX(26px);}
+    80%  { --bamboleo: rotate(-10deg) scale(1.11) translateX(-24px);}
+    90%  { --bamboleo: rotate(4deg) scale(1.04) translateX(12px);}
+    100% { --bamboleo: rotate(-10deg) scale(1) translateX(0px);}
 }
 @keyframes bamboleo-nota {
-    0% { margin-left: 0px; }
-    20% { margin-left: 12px; }
-    40% { margin-left: -14px; }
-    60% { margin-left: 10px; }
-    80% { margin-left: -12px; }
-    100% { margin-left: 0px; }
+    0%   { --bamboleo: rotate(-14deg) scale(1) translateX(0px);}
+    10%  { --bamboleo: rotate(18deg) scale(1.10) translateX(28px);}
+    20%  { --bamboleo: rotate(-22deg) scale(1.15) translateX(-36px);}
+    30%  { --bamboleo: rotate(12deg) scale(1.07) translateX(22px);}
+    40%  { --bamboleo: rotate(-18deg) scale(1.13) translateX(-32px);}
+    50%  { --bamboleo: rotate(22deg) scale(1.16) translateX(36px);}
+    60%  { --bamboleo: rotate(-14deg) scale(1.09) translateX(-24px);}
+    70%  { --bamboleo: rotate(16deg) scale(1.12) translateX(30px);}
+    80%  { --bamboleo: rotate(-20deg) scale(1.14) translateX(-28px);}
+    90%  { --bamboleo: rotate(8deg) scale(1.05) translateX(16px);}
+    100% { --bamboleo: rotate(-14deg) scale(1) translateX(0px);}
 }
 
 /* Colores y brillos para notas musicales */
@@ -633,26 +662,27 @@ body {
 }
 
 /* Nubes y notas: sincroniza delays y posiciones */
+/* Para menos notas musicales, deja solo .nota-0 a .nota-4 en tu HTML */
 .humo-nube-0, .nota-0 { --i: 0; --x: -18px; }
 .humo-nube-1, .nota-1 { --i: 1; --x: 12px; }
 .humo-nube-2, .nota-2 { --i: 2; --x: -8px; }
 .humo-nube-3, .nota-3 { --i: 3; --x: 18px; }
-.humo-nube-4, .nota-4 { --i: 4; --x: -8px; }
-.humo-nube-5, .nota-5 { --i: 5; --x: 16px; }
-.humo-nube-6, .nota-6 { --i: 6; --x: -14px; }
-.humo-nube-7, .nota-7 { --i: 7; --x: 8px; }
-.humo-nube-8, .nota-8 { --i: 8; --x: 28px; }
-.humo-nube-9, .nota-9 { --i: 9; --x: -22px; }
-.humo-nube-10, .nota-10 { --i: 10; --x: 10px; }
-.humo-nube-11, .nota-11 { --i: 11; --x: -20px; }
-.humo-nube-12, .nota-12 { --i: 12; --x: 18px; }
-.humo-nube-13, .nota-13 { --i: 13; --x: -12px; }
-.humo-nube-14, .nota-14 { --i: 14; --x: 24px; }
-.humo-nube-15, .nota-15 { --i: 15; --x: 10px; }
-.humo-nube-16, .nota-16 { --i: 16; --x: -16px; }
-.humo-nube-17, .nota-17 { --i: 17; --x: 20px; }
-.humo-nube-18, .nota-18 { --i: 18; --x: -20px; }
-.humo-nube-19, .nota-19 { --i: 19; --x: 14px; }
+.humo-nube-4, .nota-4 { --i: 4; --x: 8px; }
+.humo-nube-5 { --i: 5; --x: 16px; }
+.humo-nube-6 { --i: 6; --x: -14px; }
+.humo-nube-7 { --i: 7; --x: 8px; }
+.humo-nube-8 { --i: 8; --x: 28px; }
+.humo-nube-9 { --i: 9; --x: -22px; }
+.humo-nube-10 { --i: 10; --x: 10px; }
+.humo-nube-11 { --i: 11; --x: -20px; }
+.humo-nube-12 { --i: 12; --x: 18px; }
+.humo-nube-13 { --i: 13; --x: -12px; }
+.humo-nube-14 { --i: 14; --x: 24px; }
+.humo-nube-15 { --i: 15; --x: 10px; }
+.humo-nube-16 { --i: 16; --x: -16px; }
+.humo-nube-17 { --i: 17; --x: 20px; }
+.humo-nube-18 { --i: 18; --x: -20px; }
+.humo-nube-19 { --i: 19; --x: 14px; }
 
 /* Animación extra para el humo de fondo (opcional) */
 @keyframes humo-ondulante {
@@ -665,7 +695,7 @@ body {
 
 /* --- Logo en la parte superior --- */
 .logo-eterials {
-    width: 130px;         /* Escritorio */
+    width: 130px;
     max-width: 30vw;
     min-width: 70px;
     margin-bottom: 12px;
@@ -679,7 +709,7 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    animation: girar-vinilo 2.5s linear infinite; /* Animación infinita */
+    animation: girar-vinilo 2.5s linear infinite;
 }
 
 /* --- Modo móvil: sobrescribe solo lo necesario --- */
