@@ -555,7 +555,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
         left: 0 !important;
         bottom: 10px;
         width: 90px !important;      /* Antes: 60px */
-        max-width: 32vw !important;  /* Antes: 22vw */
+        max-width: 52vw !important;  /* Antes: 22vw */
         height: auto !important;
         z-index: 20 !important;      /* Asegura que esté por encima del humo/notas */
     }
