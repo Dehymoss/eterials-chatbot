@@ -362,7 +362,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     width: 180px;
     height: auto;
     max-width: 22vw;
-    z-index: 10;
+    z-index: 20;      /* Encima del humo y notas */
     opacity: 0.93;
     pointer-events: none;
     transition: width 0.3s, left 0.3s;
@@ -385,7 +385,7 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     width: 180px;
     height: 260px;
     pointer-events: none;
-    z-index: 20;
+    z-index: 10;      /* Detrás de la taza */
     overflow: visible;
 }
 .humo-nube, .nota {
@@ -554,15 +554,17 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     .taza-esquina {
         left: 0 !important;
         bottom: 10px;
-        width: 60px !important;
-        max-width: 22vw !important;
+        width: 90px !important;      /* Antes: 60px */
+        max-width: 32vw !important;  /* Antes: 22vw */
         height: auto !important;
+        z-index: 20 !important;      /* Asegura que esté por encima del humo/notas */
     }
     .humareda {
-        left: 0 !important;
-        bottom: 55px !important;
-        width: 70px !important;
-        height: 120px !important;
+        left: 10px !important;       /* Ajusta para que salga justo detrás de la taza */
+        bottom: 30px !important;
+        width: 90px !important;
+        height: 160px !important;
+        z-index: 10 !important;      /* Detrás de la taza */
     }
 }
 @media (max-width: 600px) {
@@ -610,14 +612,16 @@ label, #saludo, .estrella, .redes a, textarea, input[type="text"] {
     }
     .taza-esquina {
         left: -10px !important;
-        width: 48px !important;
-        max-width: 18vw !important;
+        width: 70px !important;      /* Antes: 48px */
+        max-width: 28vw !important;
         height: auto !important;
+        z-index: 20 !important;
     }
     .humareda {
-        left: -18px !important;
-        width: 60px !important;
-        height: 90px !important;
+        left: 0 !important;
+        width: 70px !important;
+        height: 120px !important;
+        z-index: 10 !important;
     }
 }
 
