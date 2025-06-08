@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menu-dia.css">
+</head>
+<body>
+    <section>
+        <h2>Editar Menú del Día</h2>
+        <form id="form-menu-dia">
+            <label>Sopa del día: <input type="text" name="sopa"></label><br>
+            <label>Plato fuerte: <input type="text" name="plato"></label><br>
+            <label>Bebida: <input type="text" name="bebida"></label><br>
+            <label>Postre: <input type="text" name="postre"></label><br>
+            <button type="submit">Guardar</button>
+        </form>
+        <div id="mensaje-guardado" class="mensaje-guardado">¡Menú guardado!</div>
+    </section>
+    <script>
+        document.getElementById('form-menu-dia').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+            
+            // Aquí iría el código para guardar el menú del día
+            
+            // Mostrar el mensaje de guardado
+            document.getElementById('mensaje-guardado').style.display = 'block';
+            
+            // Ocultar el mensaje después de 3 segundos
+            setTimeout(function() {
+                document.getElementById('mensaje-guardado').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
