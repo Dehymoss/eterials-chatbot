@@ -18,20 +18,6 @@
         </form>
         <div id="mensaje-guardado" class="mensaje-guardado">¡Menú guardado!</div>
     </section>
-    <script>
-        document.getElementById('form-menu-dia').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita el envío del formulario
-            
-            // Aquí iría el código para guardar el menú del día
-            
-            // Mostrar el mensaje de guardado
-            document.getElementById('mensaje-guardado').style.display = 'block';
-            
-            // Ocultar el mensaje después de 3 segundos
-            setTimeout(function() {
-                document.getElementById('mensaje-guardado').style.display = 'none';
-            }, 3000);
-        });
-    </script>
+    <script src="menu-dia.js"></script>
 </body>
 </html>
